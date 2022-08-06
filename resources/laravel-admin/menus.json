@@ -1,0 +1,10 @@
+{
+    "menus": [{
+        "section": "Modules",
+        "items": [{
+            "title": "Documents",
+            "icon": "glyphicon-book",
+            "url": "\/Documents\/documents"
+        }]
+    }]
+}
