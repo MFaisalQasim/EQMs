@@ -363,7 +363,7 @@ Route::resource('motivationalquotes/motivational-quotes', 'MotivationalQuotes\\M
 Route::resource('Announcement/announcement', 'Announcement\\AnnouncementController');
 Route::resource('vacation/vacation', 'VacationController\\VacationController');
 Route::resource('incident/incident', 'IncidentController\\IncidentController');
-Route::resource('calender/calender', 'CalenderController\\CalenderController');
+// Route::resource('calender/calender', 'CalenderController\\CalenderController');
 Route::resource('health-and-safety-inspection/health-and-safety-inspection', 'HealthAndSafetyInspectionController\\HealthAndSafetyInspectionController');
 Route::resource('audits/audits', 'AuditsController\\AuditsController');
 
@@ -394,12 +394,23 @@ Route::resource('job-position', 'JobPositionController\\JobPositionController');
 Route::resource('H-And-S-inspection-list', 'HealthAndSafetyInspectionListController\\HealthAndSafetyInspectionListController');
 
 Route::post('/mark-as-read', 'HomeController@markNotification')->name('markNotification');
+//fullcalender
 
-use App\Http\Controllers\CalenderController;
+  
+use Illuminate\Support\Facades\Route;
+  
+use App\Http\Controllers\FullCalenderController;
+  
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
 */
-Route::get('calendar-event', [CalenderController::class, 'index']);
-Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
+  
+Route::get('fullcalender', [FullCalenderController::class, 'index']);
+Route::post('fullcalenderAjax', [FullCalenderController::class, 'ajax']);
