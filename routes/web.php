@@ -3,6 +3,7 @@
 Route::get('/', function () {
     return view('auth.login');
 });
+// Route::get('/', 'PagesController@Login');
 Route::get('/crm', 'PagesController@CRM');
 Route::get('/human_resources', 'PagesController@HumanResources');
 Route::get('/procedures', 'PagesController@Procedures');

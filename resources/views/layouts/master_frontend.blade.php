@@ -11,12 +11,14 @@
     <link rel="stylesheet" href="{{ asset('website/css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('website/css/header.css') }}" />
 
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"> --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
     {{-- <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.9.0/css/bootstrap-iconpicker.min.css" /> --}}
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
     <link href="{{ asset('bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+
+
 
     @if (session()->get('theme-layout') == 'fix-header')
         <link href="{{ asset('css/style-fix-header.css') }}" rel="stylesheet">
@@ -32,6 +34,20 @@
 
 <body>
     <!-- Header Start -->
+    {{-- @foreach ($notification as $item)
+        @if ($item->due_date == date('Y-m-d') && $item->due_date != null)
+            @dd($item->due_date, 'in loop');
+
+            @dd($item->due_date, date('Y,m,d'));
+            @dd(date('Y,m,d'));
+            @dd('its due date');
+        @elseif($item->due_date != date('Y-m-d'))
+            @dd($item->due_date, 'elseif', date('Y-m-d'));
+        @else
+            @dd($item->due_date, 'else');
+        @endif
+    @endforeach --}}
+
     <header class="site-header">
         <div class="site-header__top">
             <div class="wrapper site-header__wrapper p-1">
@@ -66,16 +82,16 @@
                                             <img class="img-fluid alert_icon"
                                                 src="{{ asset('website/images/alert_icon.png') }}" alt="">
                                         </a>
-                                        {{-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             @if (auth()->user()->hasRole('User B') ||
-    auth()->user()->hasRole('UserC1') ||
-    auth()->user()->hasRole('UserC2'))
+                                                auth()->user()->hasRole('UserC1') ||
+                                                auth()->user()->hasRole('UserC2'))
                                                 @foreach ($notification as $item)
                                                     @if (Auth::user()->name == $item->reciver_name)
                                                         <div class="p-2 notification_border">
                                                             <div class="d_flex_space_between">
                                                                 <h6 class="post-title mr-4">
-                                                                    <a >
+                                                                    <a>
                                                                         {{ $item->notifications_title }}</a>
                                                                 </h6>
                                                                 <h6 class="post-title">
@@ -98,7 +114,7 @@
                                             @else
                                                 <h1>Nothing TO Show</h1>
                                             @endif
-                                        </div> --}}
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -267,13 +283,6 @@
     {{-- <script src="js/header-10.js"></script> --}}
 
     <script src="{{ asset('website/js/header-10.js') }}"></script>
-    <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-    </script>
     @stack('js')
 </body>
 

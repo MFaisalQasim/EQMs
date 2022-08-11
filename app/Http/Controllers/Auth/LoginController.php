@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Notification;
+use Carbon\Carbon;
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
@@ -21,7 +23,7 @@ class LoginController extends Controller
         ->log('LoggedIn')) {
             return redirect('/');
         } else {
-            return redirect('/');
+            return redirect('/login');
         }
         
         

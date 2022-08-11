@@ -24,19 +24,65 @@ use App\Audit;
 
 class PagesController extends Controller
 {
-    public function Test()
-    {
-        // $models = scandir(public_path()."/models");
-        // return view('layouts.frontend.test');
-    }
+    // public function Login()
+    // {
+        
+    //     $notificationAlert = Notification::get();
+    // return view('dashboard.index', compact('notificationAlert'));
+    // }
     public function Dashboard()
     {
         // return "here";
         $documents = Document::paginate(5);
         $motivationalquotes = MotivationalQuote::get()->last();
         $announcement = Announcement::get();
-            $notification = Notification::orderBy('id', 'DESC')->take(5)->get();
-        $incident = Incident::get();
+        // if ($notification->due_date = null) {
+            $notification = Notification::where("due_date", '=', null)->orderBy('id', 'DESC')->take(5)->get();
+
+            $incident = Incident::get();
+            $notificationAlert = Notification::get();
+ 
+            foreach ($notificationAlert as $item)
+               { 
+                if ($item->due_date == date('Y-m-d') && $item->due_date != null && $item->reciver_name == Auth::user()->name)
+                 {   
+                    // dd($item->due_date, 'in loop');
+        
+                    $notificationNewAlert = New Notification;
+                    $notificationNewAlert->reference_issue_id = $item->reference_issue_id;
+                    $notificationNewAlert->reporter_name = $item->reporter_name;
+                    $notificationNewAlert->notifications_title = "Due Date Alert";
+                    $notificationNewAlert->reciver_name = $item->reciver_name;
+                    $notificationNewAlert->date = date('Y-m-d');
+                    $notificationNewAlert->notifications_description = $item->notifications_description;
+                    $notificationNewAlert->save();
+
+                    // dd($item->due_date, date('Y,m,d'));
+                    // dd(date('Y,m,d'));
+                    // dd('its due date');
+                }
+                // $item->remainder
+                elseif($item->remainder == date('Y-m-d') && $item->remainder != null && $item->reciver_name == Auth::user()->name)
+                    {
+                        
+                    $notificationNewAlert = New Notification;
+                    $notificationNewAlert->reference_issue_id = $item->reference_issue_id;
+                    $notificationNewAlert->reporter_name = $item->reporter_name;
+                    $notificationNewAlert->notifications_title = "Remainder Alert";
+                    $notificationNewAlert->reciver_name = $item->reciver_name;
+                    $notificationNewAlert->date = date('Y-m-d');
+                    $notificationNewAlert->notifications_description = $item->notifications_description;
+                    $notificationNewAlert->save();
+                        echo($item->due_date . 'elseif'. date('Y-m-d'));
+                    }
+                // elseif($item->due_date != date('Y-m-d'))
+                //     {echo($item->due_date . 'elseif'. date('Y-m-d'));}
+            //     else
+            //    { echo($item->due_date . 'else');}
+            }
+
+
+        
         return view('dashboard.index', compact('documents', 'motivationalquotes', 'announcement', 'notification','incident'));
     }
     public function CRM()

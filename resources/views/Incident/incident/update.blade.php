@@ -117,15 +117,24 @@
 </div>
 @endif
 @if (Auth::user()->hasRole('UserC2'))
+{{-- <div class="form-group {{ $errors->has('check_status') ? 'has-error' : '' }}">
+    {!! Form::label('check_status', 'Incident Status', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        <select class="form-control" name="check_status">
+            <option value="pending">pending</option>
+            <option value="closed">closed</option>
+        </select>
+        {!! $errors->first('check_status', '<p class="help-block">:message</p>') !!}
+    </div>
+</div> --}}
+
 <div class="form-group {{ $errors->has('check_status') ? 'has-error' : '' }}">
     {!! Form::label('check_status', 'Incident Status', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        <div class="">
-            <label>{!! Form::radio('check_status', 'Incident Closed') !!} Incident Closed</label>
-        </div>
-        <div class="">
-            <label>{!! Form::radio('check_status', 'Pending', true) !!} Pending</label>
-        </div>
+        <select class="form-control" name="check_status">
+            <option value="pending">pending</option>
+            <option value="closed">closed</option>
+        </select>
         {!! $errors->first('check_status', '<p class="help-block">:message</p>') !!}
     </div>
 </div>

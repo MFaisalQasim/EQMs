@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use App\Notification;
 use App\InspectionList;
 use App\HealthAndSafetyInspectionList;
-
+use Carbon\Carbon;
 
 class HealthAndSafetyInspectionController extends Controller
 {
@@ -80,10 +80,14 @@ class HealthAndSafetyInspectionController extends Controller
                 $this->validate($request, [
                 'areas_inspected' => 'required',
                 'inspection_timing' => 'required'
-                
             ]); 
             $requestData = $request->all();
-            // return $request;
+            // $inspection_remainder = $request->inspection_timing;
+            
+            // dd(date('Y-m-d', strtotime('-1 day', strtotime($request->inspection_timing))) , $request->inspection_timing);
+
+        //    $healthandsafetyinspection->inspection_remainder = date('Y-m-d', strtotime('-1 day', strtotime($remainder)));
+
             $healthandsafetyinspection = HealthAndSafetyInspection::create($requestData);
             // return $healthandsafetyinspection->id;
             // if ($ErrorMsg == "") {
@@ -101,6 +105,7 @@ class HealthAndSafetyInspectionController extends Controller
              $notification->reporter_name = auth()->user()->name;
              $notification->reciver_name = $request->employee_to;
              $notification->date = $request->inspection_timing;
+             $notification->remainder = date('Y-m-d', strtotime('-1 day', strtotime($request->inspection_timing)));
              $notification->save();
             return redirect('health-and-safety-inspection/health-and-safety-inspection')->with('flash_message', 'HealthAndSafetyInspection added!');
         }

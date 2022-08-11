@@ -9,7 +9,7 @@ use App\Incident;
 use App\User;
 use App\Notification;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class IncidentController extends Controller
 {
 
@@ -161,6 +161,7 @@ class IncidentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         // return $request->responce;
         $model = str_slug('incident','-');
         if(auth()->user()->permissions()->where('name','=','edit-'.$model)->first()!= null) {
@@ -187,6 +188,11 @@ class IncidentController extends Controller
              $notification->reciver_name = $request->incident_reported_to;
              $notification->date = $request->review_date;
             //  $notification->notifications_description = $request->incident_description;
+            if ( $incident->check_status = 'closed') {
+                $current = Carbon::now();
+                $notification->due_date = $current->addDays(20);
+
+              }
              $notification->save();
              return redirect('incident/incident')->with('flash_message', 'Incident updated!');
         }

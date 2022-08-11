@@ -150,6 +150,7 @@ class AddTrainingController extends Controller
             $addtraining->response = $request->response;
              $addtraining->update($requestData);
              $notification = new Notification();
+             
               $notification->reference_issue_id = $addtraining->id;
               $notification->reporter_name = auth()->user()->name;
               $notification->notifications_title = "AddTraining Update";
@@ -158,6 +159,7 @@ class AddTrainingController extends Controller
               $notification->date = $request->start_date;
               $notification->response = $addtraining->response;
               $notification->save();
+              
 
 
              return redirect('add_training/add-training')->with('flash_message', 'AddTraining updated!');
