@@ -1,9 +1,31 @@
 <?php
-// Route::get('/', 'PagesController@HomePage');
+
+use App\Document;
+use App\Announcement;
+use App\Notification;
+use App\Incident;
+use App\MotivationalQuote; 
+use App\Role;
+use App\Audit;
 Route::get('/', function () {
     return view('auth.login');
 });
-// Route::get('/', 'PagesController@Login');
+
+Route::get('/send-email', function () {
+    \Illuminate\Support\Facades\Mail::send(new \App\Mail\IncidentNotification()); 
+
+    // \Illuminate\Support\Facades\Notification::send(\App\Models\User::all(), new \App\Mail\IncidentNotification()); 
+
+    $documents = Document::paginate(5);
+    $motivationalquotes = MotivationalQuote::get()->last();
+    $announcement = Announcement::get();
+    // if ($notification->due_date = null) {
+        $notification = Notification::where("due_date", '=', null)->orderBy('id', 'DESC')->take(5)->get();
+
+        $incident = Incident::get();
+    return view('dashboard.index', compact('documents', 'motivationalquotes', 'announcement', 'notification','incident'));
+});
+// Route::get('/', 'PagesController@HomePage');
 Route::get('/crm', 'PagesController@CRM');
 Route::get('/human_resources', 'PagesController@HumanResources');
 Route::get('/procedures', 'PagesController@Procedures');

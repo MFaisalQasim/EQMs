@@ -56,12 +56,8 @@ class PagesController extends Controller
                     $notificationNewAlert->date = date('Y-m-d');
                     $notificationNewAlert->notifications_description = $item->notifications_description;
                     $notificationNewAlert->save();
-
-                    // dd($item->due_date, date('Y,m,d'));
-                    // dd(date('Y,m,d'));
-                    // dd('its due date');
+                return redirect('/send-email');
                 }
-                // $item->remainder
                 elseif($item->remainder == date('Y-m-d') && $item->remainder != null && $item->reciver_name == Auth::user()->name)
                     {
                         
@@ -80,8 +76,6 @@ class PagesController extends Controller
             //     else
             //    { echo($item->due_date . 'else');}
             }
-
-
         
         return view('dashboard.index', compact('documents', 'motivationalquotes', 'announcement', 'notification','incident'));
     }
