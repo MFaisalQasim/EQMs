@@ -44,10 +44,15 @@ class PagesController extends Controller
  
             foreach ($notificationAlert as $item)
                { 
-                if ($item->due_date == date('Y-m-d') && $item->due_date != null && $item->reciver_name == Auth::user()->name)
+                if ($item->due_date == date('Y-m-d') && $item->due_date != null && $item->response == 'pending ' && $item->reciver_name == Auth::user()->name)
                  {   
                     // dd($item->due_date, 'in loop');
-        
+        // dd($item->response);
+        ($Nid =$item->id);
+                    ($notificationD = Notification::findOrFail($Nid));
+                    // return 'here';
+                    $notificationD->response = 'email-sent';
+                    $notificationD->save();
                     $notificationNewAlert = New Notification;
                     $notificationNewAlert->reference_issue_id = $item->reference_issue_id;
                     $notificationNewAlert->reporter_name = $item->reporter_name;

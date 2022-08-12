@@ -7,7 +7,7 @@ use App\Incident;
 use App\MotivationalQuote; 
 use App\Role;
 use App\Audit;
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('auth.login');
 });
 

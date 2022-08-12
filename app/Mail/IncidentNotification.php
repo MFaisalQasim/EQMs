@@ -61,13 +61,23 @@ class IncidentNotification extends Mailable implements ShouldQueue
                 // return dd('your IncidentNotification for remainder is send');
                }
                else {
-                return dd('your IncidentNotification is send');
+                // return dd('your IncidentNotification is send');
+    //    return redirect('/');
+    //    return view('dashboard.index');
+    //    return view('dashboard.index');
+       
+       $this
+       ->from('mfaisalqasimtesting123@gmail.com')
+       ->to(Auth::User()->email)
+       ->subject('your are login to EQMS')
+       ->view('emails.IncidentNotification');
+    // redirect('/');
                }
        }
-       return $this
-       ->from('mfaisalqasimtesting123@gmail.com')
-       ->to('devop361@gmail.com')
-       ->subject('your IncidentNotification is send')
-       ->view('emails.IncidentNotification');
+    //    return $this
+    //    ->from('mfaisalqasimtesting123@gmail.com')
+    //    ->to('devop361@gmail.com')
+    //    ->subject('your IncidentNotification is send')
+    //    ->view('emails.IncidentNotification');
     }
 }
