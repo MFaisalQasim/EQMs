@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 11, 2022 at 05:31 PM
+-- Generation Time: Aug 13, 2022 at 12:54 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -646,7 +646,23 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_id`, `subj
 (572, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-11 21:53:35', '2022-08-11 21:53:35'),
 (573, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-11 21:53:52', '2022-08-11 21:53:52'),
 (574, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-11 21:54:40', '2022-08-11 21:54:40'),
-(575, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-11 22:26:11', '2022-08-11 22:26:11');
+(575, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-11 22:26:11', '2022-08-11 22:26:11'),
+(576, 'Nayla R', 'LoggedIn', 7, 'App\\User', 7, 'App\\User', '[]', '2022-08-11 23:26:32', '2022-08-11 23:26:32'),
+(577, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-12 15:13:26', '2022-08-12 15:13:26'),
+(578, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-12 15:15:59', '2022-08-12 15:15:59'),
+(579, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-12 15:26:20', '2022-08-12 15:26:20'),
+(580, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-12 16:13:02', '2022-08-12 16:13:02'),
+(581, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-12 16:14:12', '2022-08-12 16:14:12'),
+(582, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-12 16:14:51', '2022-08-12 16:14:51'),
+(583, 'Nayla R', 'LoggedIn', 7, 'App\\User', 7, 'App\\User', '[]', '2022-08-12 16:16:31', '2022-08-12 16:16:31'),
+(584, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-12 16:23:30', '2022-08-12 16:23:30'),
+(585, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-12 16:24:57', '2022-08-12 16:24:57'),
+(586, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-12 16:34:37', '2022-08-12 16:34:37'),
+(587, 'UserC2', 'LoggedOut', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-12 16:35:40', '2022-08-12 16:35:40'),
+(588, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-12 16:35:45', '2022-08-12 16:35:45'),
+(589, 'UserC1', 'LoggedOut', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-12 16:35:58', '2022-08-12 16:35:58'),
+(590, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-12 16:36:01', '2022-08-12 16:36:01'),
+(591, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-12 16:37:06', '2022-08-12 16:37:06');
 
 -- --------------------------------------------------------
 
@@ -1431,7 +1447,7 @@ CREATE TABLE `notifications` (
 --
 
 INSERT INTO `notifications` (`id`, `reporter_name`, `reciver_name`, `reference_issue_id`, `response`, `date`, `remainder`, `due_date`, `notifications_title`, `notifications_description`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(15, 'UserC1', 'UserC2', 1, 'accept', '2022-08-01', NULL, '2022-08-11', 'AddTraining Update', '', '2022-08-01 22:38:53', '2022-08-01 22:38:53', NULL),
+(15, 'UserC1', 'UserC2', 1, 'email-sent', '2022-08-01', NULL, '2022-08-12', 'AddTraining Update', '', '2022-08-01 22:38:53', '2022-08-12 16:45:14', NULL),
 (16, 'UserC1', 'UserC2', 19, 'pending ', '2022-08-10', NULL, NULL, 'AddTraining Created', NULL, '2022-08-01 22:45:26', '2022-08-01 22:45:26', NULL),
 (17, 'UserC1', 'UserC2', 20, 'pending ', '2022-08-01', NULL, NULL, 'AddTraining Created', NULL, '2022-08-01 22:45:41', '2022-08-01 22:45:41', NULL),
 (18, 'Nayla R', 'User B', 9, 'pending ', '2022-08-18', NULL, NULL, 'AddTraining Created', NULL, '2022-08-01 23:16:47', '2022-08-01 23:16:47', NULL),
@@ -1511,8 +1527,18 @@ INSERT INTO `notifications` (`id`, `reporter_name`, `reciver_name`, `reference_i
 (104, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:55:07', '2022-08-11 21:55:07', NULL),
 (105, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:55:10', '2022-08-11 21:55:10', NULL),
 (106, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:56:39', '2022-08-11 21:56:39', NULL),
-(107, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:57:56', '2022-08-11 21:57:56', NULL),
-(108, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 22:26:11', '2022-08-11 22:26:11', NULL);
+(107, 'UserC1', 'UserC2', 1, 'email-sent', '2022-08-11', NULL, '2022-08-12', 'Due Date Alert', '', '2022-08-11 21:57:56', '2022-08-12 16:50:07', NULL),
+(108, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, '2022-08-12', 'Due Date Alert', '', '2022-08-11 22:26:11', '2022-08-11 22:26:11', NULL),
+(109, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-12', NULL, NULL, 'Due Date Alert', '', '2022-08-12 15:18:28', '2022-08-12 15:18:28', NULL),
+(110, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-12', NULL, NULL, 'Due Date Alert', '', '2022-08-12 15:19:34', '2022-08-12 15:19:34', NULL),
+(111, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-12', NULL, NULL, 'Due Date Alert', '', '2022-08-12 15:20:08', '2022-08-12 15:20:08', NULL),
+(112, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-12', NULL, NULL, 'Due Date Alert', '', '2022-08-12 15:26:41', '2022-08-12 15:26:41', NULL),
+(113, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-12', NULL, NULL, 'Due Date Alert', '', '2022-08-12 16:01:27', '2022-08-12 16:01:27', NULL),
+(114, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-12', NULL, NULL, 'Due Date Alert', '', '2022-08-12 16:02:22', '2022-08-12 16:02:22', NULL),
+(115, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-12', NULL, '2022-08-12', 'Due Date Alert', '', '2022-08-12 16:02:29', '2022-08-12 16:02:29', NULL),
+(116, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-12', NULL, NULL, 'Due Date Alert', '', '2022-08-12 16:39:14', '2022-08-12 16:39:14', NULL),
+(117, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-12', NULL, NULL, 'Due Date Alert', '', '2022-08-12 16:45:14', '2022-08-12 16:45:14', NULL),
+(118, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-12', NULL, NULL, 'Due Date Alert', '', '2022-08-12 16:50:07', '2022-08-12 16:50:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -2591,7 +2617,7 @@ ALTER TABLE `vacations`
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=576;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=592;
 
 --
 -- AUTO_INCREMENT for table `add_trainings`
@@ -2741,7 +2767,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(191) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id` int(191) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
 -- AUTO_INCREMENT for table `permissions`

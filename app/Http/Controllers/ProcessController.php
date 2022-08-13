@@ -173,4 +173,8 @@ class ProcessController extends Controller
 
         return redirect('/');
     }
+    public function callAction($method, $parameters)
+      {
+          return parent::callAction($method, array_values($parameters));
+      }
 }

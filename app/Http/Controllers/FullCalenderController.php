@@ -71,4 +71,8 @@ class FullCalenderController extends Controller
              break;
         }
     }
+    public function callAction($method, $parameters)
+      {
+          return parent::callAction($method, array_values($parameters));
+      }
 }

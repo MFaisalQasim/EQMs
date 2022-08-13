@@ -56,4 +56,8 @@ class PermissionController extends Controller
         Session::flash('message','Permission has been deleted');
         return back();
     }
+    public function callAction($method, $parameters)
+      {
+          return parent::callAction($method, array_values($parameters));
+      }
 }

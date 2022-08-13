@@ -178,4 +178,8 @@ class VacationController extends Controller
         return response(view('403'), 403);
 
     }
+    public function callAction($method, $parameters)
+      {
+          return parent::callAction($method, array_values($parameters));
+      }
 }

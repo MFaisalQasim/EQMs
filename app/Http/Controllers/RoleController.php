@@ -71,4 +71,8 @@ class RoleController extends Controller
         Session::flash('message','Role has been updated');
         return redirect('role-management');
     }
+    public function callAction($method, $parameters)
+      {
+          return parent::callAction($method, array_values($parameters));
+      }
 }

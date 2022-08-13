@@ -250,4 +250,8 @@ class UsersController extends Controller
         return redirect()->back();
     }
 
+    public function callAction($method, $parameters)
+      {
+          return parent::callAction($method, array_values($parameters));
+      }
 }

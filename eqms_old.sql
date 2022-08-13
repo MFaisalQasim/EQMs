@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Aug 11, 2022 at 06:15 AM
--- Server version: 5.6.41-84.1
--- PHP Version: 7.4.30
+-- Host: 127.0.0.1
+-- Generation Time: Aug 11, 2022 at 05:31 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `adyancom_eqms2`
+-- Database: `eqms`
 --
 
 -- --------------------------------------------------------
@@ -34,7 +33,7 @@ CREATE TABLE `about_uses` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -62,7 +61,7 @@ CREATE TABLE `activity_log` (
   `subject_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `causer_id` int(11) DEFAULT NULL,
   `causer_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `properties` text COLLATE utf8mb4_unicode_ci,
+  `properties` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -582,8 +581,72 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_id`, `subj
 (507, 'User A', 'LoggedIn', 1, 'App\\User', 1, 'App\\User', '[]', '2022-08-05 22:59:56', '2022-08-05 22:59:56'),
 (508, 'User A', 'LoggedOut', 1, 'App\\User', 1, 'App\\User', '[]', '2022-08-05 22:59:59', '2022-08-05 22:59:59'),
 (509, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-05 23:06:13', '2022-08-05 23:06:13'),
-(510, 'Nayla R', 'LoggedIn', 7, 'App\\User', 7, 'App\\User', '[]', '2022-08-05 22:31:19', '2022-08-05 22:31:19'),
-(511, 'User A', 'LoggedIn', 1, 'App\\User', 1, 'App\\User', '[]', '2022-08-09 23:12:16', '2022-08-09 23:12:16');
+(510, 'User A', 'LoggedIn', 1, 'App\\User', 1, 'App\\User', '[]', '2022-08-06 18:11:55', '2022-08-06 18:11:55'),
+(511, 'User A', 'LoggedIn', 1, 'App\\User', 1, 'App\\User', '[]', '2022-08-06 21:53:33', '2022-08-06 21:53:33'),
+(512, 'User A', 'LoggedOut', 1, 'App\\User', 1, 'App\\User', '[]', '2022-08-06 21:53:36', '2022-08-06 21:53:36'),
+(513, 'Nayla R', 'LoggedIn', 7, 'App\\User', 7, 'App\\User', '[]', '2022-08-06 21:53:42', '2022-08-06 21:53:42'),
+(514, 'User B', 'LoggedIn', 2, 'App\\User', 2, 'App\\User', '[]', '2022-08-06 22:32:32', '2022-08-06 22:32:32'),
+(515, 'User B', 'LoggedOut', 2, 'App\\User', 2, 'App\\User', '[]', '2022-08-06 22:32:37', '2022-08-06 22:32:37'),
+(516, 'User A', 'LoggedIn', 1, 'App\\User', 1, 'App\\User', '[]', '2022-08-06 22:32:45', '2022-08-06 22:32:45'),
+(517, 'User A', 'LoggedIn', 1, 'App\\User', 1, 'App\\User', '[]', '2022-08-09 16:41:46', '2022-08-09 16:41:46'),
+(518, 'User A', 'LoggedIn', 1, 'App\\User', 1, 'App\\User', '[]', '2022-08-09 17:10:01', '2022-08-09 17:10:01'),
+(519, 'User A', 'LoggedIn', 1, 'App\\User', 1, 'App\\User', '[]', '2022-08-09 17:26:49', '2022-08-09 17:26:49'),
+(520, 'User A', 'LoggedIn', 1, 'App\\User', 1, 'App\\User', '[]', '2022-08-09 17:31:17', '2022-08-09 17:31:17'),
+(521, 'User A', 'LoggedIn', 1, 'App\\User', 1, 'App\\User', '[]', '2022-08-10 15:20:33', '2022-08-10 15:20:33'),
+(522, 'User A', 'LoggedIn', 1, 'App\\User', 1, 'App\\User', '[]', '2022-08-10 16:15:55', '2022-08-10 16:15:55'),
+(523, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 22:29:16', '2022-08-10 22:29:16'),
+(524, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-10 22:32:55', '2022-08-10 22:32:55'),
+(525, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:11:26', '2022-08-10 23:11:26'),
+(526, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:11:49', '2022-08-10 23:11:49'),
+(527, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:12:28', '2022-08-10 23:12:28'),
+(528, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:13:52', '2022-08-10 23:13:52'),
+(529, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:14:14', '2022-08-10 23:14:14'),
+(530, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:14:58', '2022-08-10 23:14:58'),
+(531, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:15:52', '2022-08-10 23:15:52'),
+(532, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:16:49', '2022-08-10 23:16:49'),
+(533, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:19:35', '2022-08-10 23:19:35'),
+(534, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:21:58', '2022-08-10 23:21:58'),
+(535, 'UserC1', 'LoggedOut', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:22:25', '2022-08-10 23:22:25'),
+(536, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:22:29', '2022-08-10 23:22:29'),
+(537, 'UserC1', 'LoggedOut', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:23:17', '2022-08-10 23:23:17'),
+(538, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:23:23', '2022-08-10 23:23:23'),
+(539, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:23:51', '2022-08-10 23:23:51'),
+(540, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:24:14', '2022-08-10 23:24:14'),
+(541, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:24:39', '2022-08-10 23:24:39'),
+(542, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:25:07', '2022-08-10 23:25:07'),
+(543, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:25:17', '2022-08-10 23:25:17'),
+(544, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:26:29', '2022-08-10 23:26:29'),
+(545, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:28:15', '2022-08-10 23:28:15'),
+(546, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:29:24', '2022-08-10 23:29:24'),
+(547, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:29:41', '2022-08-10 23:29:41'),
+(548, 'UserC1', 'LoggedOut', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:30:56', '2022-08-10 23:30:56'),
+(549, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:31:00', '2022-08-10 23:31:00'),
+(550, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:31:45', '2022-08-10 23:31:45'),
+(551, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:37:32', '2022-08-10 23:37:32'),
+(552, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-10 23:39:47', '2022-08-10 23:39:47'),
+(553, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 00:04:49', '2022-08-11 00:04:49'),
+(554, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 00:05:05', '2022-08-11 00:05:05'),
+(555, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 14:54:11', '2022-08-11 14:54:11'),
+(556, 'UserC1', 'LoggedOut', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 15:25:13', '2022-08-11 15:25:13'),
+(557, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 15:25:20', '2022-08-11 15:25:20'),
+(558, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 15:28:07', '2022-08-11 15:28:07'),
+(559, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 15:28:49', '2022-08-11 15:28:49'),
+(560, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 15:29:48', '2022-08-11 15:29:48'),
+(561, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 15:30:38', '2022-08-11 15:30:38'),
+(562, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 15:34:13', '2022-08-11 15:34:13'),
+(563, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 15:35:14', '2022-08-11 15:35:14'),
+(564, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 15:35:44', '2022-08-11 15:35:44'),
+(565, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 15:36:20', '2022-08-11 15:36:20'),
+(566, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 15:38:48', '2022-08-11 15:38:48'),
+(567, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 15:43:03', '2022-08-11 15:43:03'),
+(568, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-11 16:21:43', '2022-08-11 16:21:43'),
+(569, 'Nayla R', 'LoggedIn', 7, 'App\\User', 7, 'App\\User', '[]', '2022-08-11 19:29:31', '2022-08-11 19:29:31'),
+(570, 'UserC1', 'LoggedIn', 16, 'App\\User', 16, 'App\\User', '[]', '2022-08-11 21:45:21', '2022-08-11 21:45:21'),
+(571, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-11 21:53:27', '2022-08-11 21:53:27'),
+(572, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-11 21:53:35', '2022-08-11 21:53:35'),
+(573, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-11 21:53:52', '2022-08-11 21:53:52'),
+(574, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-11 21:54:40', '2022-08-11 21:54:40'),
+(575, 'UserC2', 'LoggedIn', 17, 'App\\User', 17, 'App\\User', '[]', '2022-08-11 22:26:11', '2022-08-11 22:26:11');
 
 -- --------------------------------------------------------
 
@@ -682,7 +745,7 @@ CREATE TABLE `bests` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -708,7 +771,7 @@ CREATE TABLE `blogs` (
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `views` int(11) NOT NULL DEFAULT '0',
+  `views` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -787,7 +850,23 @@ CREATE TABLE `calenders` (
 --
 
 INSERT INTO `calenders` (`id`, `created_at`, `updated_at`, `deleted_at`, `title`, `start`, `end`, `url`) VALUES
-(1, '2022-06-18 10:22:26', '2022-06-18 10:22:26', NULL, 'testingday01', '2022-06-18', '2022-06-18', 'https://devop360.com/');
+(1, '2022-06-18 10:22:26', '2022-06-18 10:22:26', NULL, 'testingday01', '2022-06-18', '2022-06-18', 'https://devop360.com/'),
+(2, '2022-08-06 22:03:54', '2022-08-06 22:03:54', NULL, 'task1', '2022-08-06', '2022-08-27', 'calender/calender/create');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `crud_events`
+--
+
+CREATE TABLE `crud_events` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `event_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `event_start` date NOT NULL,
+  `event_end` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -834,8 +913,8 @@ CREATE TABLE `documents_file` (
   `doc_id` int(11) NOT NULL,
   `version` varchar(191) NOT NULL,
   `file` varchar(191) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -898,6 +977,41 @@ INSERT INTO `emergency_response_exercises` (`id`, `created_at`, `updated_at`, `e
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events`
+--
+
+CREATE TABLE `events` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start` date NOT NULL,
+  `end` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `start`, `end`, `created_at`, `updated_at`) VALUES
+(3, 'asdasdasd', '2022-08-03', '2022-08-04', '2022-08-10 17:10:39', '2022-08-10 17:10:39'),
+(4, 'asdasdasdasd', '2022-08-25', '2022-08-26', '2022-08-10 17:10:44', '2022-08-10 17:11:37');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `external_audits`
 --
 
@@ -908,7 +1022,7 @@ CREATE TABLE `external_audits` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `schedule` datetime DEFAULT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'pending ',
-  `brief_results` longtext COLLATE utf8mb4_unicode_ci,
+  `brief_results` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `signature` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `areas_inspected` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `non_conformities` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
@@ -964,7 +1078,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1009,7 +1123,8 @@ INSERT INTO `health_and_safety_inspections` (`id`, `created_at`, `updated_at`, `
 (30, '2022-08-04 15:51:06', '2022-08-04 15:51:06', '2022-08-04', 'pending ', NULL, NULL),
 (31, '2022-08-04 16:36:01', '2022-08-04 16:36:01', '2022-08-04', 'pending ', NULL, NULL),
 (32, '2022-08-04 16:36:19', '2022-08-04 16:36:19', '2022-08-04', 'pending ', NULL, NULL),
-(33, '2022-08-09 23:14:15', '2022-08-09 23:14:15', '2022-08-17', 'pending ', NULL, NULL);
+(35, '2022-08-11 17:25:03', '2022-08-11 17:25:03', '2022-08-20', 'pending ', NULL, NULL),
+(36, '2022-08-11 17:45:27', '2022-08-11 17:45:27', '2022-08-27', 'pending ', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1048,13 +1163,13 @@ CREATE TABLE `incidents` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   `incident_reporter` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `incident_description` longtext COLLATE utf8mb4_unicode_ci,
-  `investigation` longtext COLLATE utf8mb4_unicode_ci,
+  `incident_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `investigation` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `corrective_actions` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `incident_reported_to` text COLLATE utf8mb4_unicode_ci,
+  `incident_reported_to` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `review_date` date DEFAULT NULL,
   `responce` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `check_status` tinyint(1) DEFAULT '0'
+  `check_status` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1062,11 +1177,11 @@ CREATE TABLE `incidents` (
 --
 
 INSERT INTO `incidents` (`id`, `created_at`, `updated_at`, `deleted_at`, `incident_reporter`, `date`, `incident_description`, `investigation`, `corrective_actions`, `incident_reported_to`, `review_date`, `responce`, `check_status`) VALUES
-(6, '2022-06-17 08:58:25', '2022-07-25 21:55:24', NULL, 'UserC2', '2022-06-17', 'http://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create', 'responce', 'responce', 'responce', '2022-07-25', 'Supplier_Problem', 1),
-(7, '2022-06-17 10:19:57', '2022-06-17 10:19:57', NULL, 'UserC2', '2022-06-17', 'http://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create', NULL, NULL, NULL, NULL, NULL, NULL),
-(9, '2022-06-17 10:23:03', '2022-06-17 10:23:03', NULL, 'UserC1', '2022-06-17', 'UserC1@user.comUserC1@user.com\r\nUserC1@user.comUserC1@user.com\r\nUserC1@user.comUserC1@user.com\r\nUserC1@user.comUserC1@user.com\r\nUserC1@user.com', NULL, NULL, NULL, NULL, NULL, NULL),
+(6, '2022-06-17 08:58:25', '2022-07-25 21:55:24', NULL, 'UserC2', '2022-06-17', 'http://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create', 'responce', 'responce', 'responce', '2022-07-25', 'Supplier_Problem', 'closed'),
+(7, '2022-06-17 10:19:57', '2022-06-17 10:19:57', NULL, 'UserC2', '2022-06-17', 'http://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create', NULL, NULL, NULL, NULL, NULL, 'pending'),
+(9, '2022-06-17 10:23:03', '2022-08-11 00:23:21', NULL, 'UserC1', '2022-06-17', 'UserC1@user.comUserC1@user.com\r\nUserC1@user.comUserC1@user.com\r\nUserC1@user.comUserC1@user.com\r\nUserC1@user.comUserC1@user.com\r\nUserC1@user.com', NULL, NULL, NULL, '2022-08-10', NULL, 'closed'),
 (10, '2022-06-17 10:26:24', '2022-06-17 10:26:24', NULL, 'UserC2', '2022-06-17', 'http://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create', NULL, NULL, NULL, NULL, NULL, NULL),
-(11, '2022-06-18 23:49:41', '2022-06-18 23:49:41', NULL, 'UserC2', '2022-06-18', 'Create New Incident\r\nCreate New Incident', NULL, NULL, NULL, NULL, NULL, NULL),
+(11, '2022-06-18 23:49:41', '2022-08-11 00:20:40', NULL, 'UserC2', '2022-06-18', 'Create New Incident\r\nCreate New Incident', NULL, NULL, NULL, '2022-08-10', NULL, 'closed'),
 (12, '2022-07-08 14:39:07', '2022-07-08 14:39:07', NULL, 'UserC2', '1999-05-29', 'test to c1', NULL, NULL, NULL, NULL, NULL, NULL),
 (13, '2022-07-08 15:06:57', '2022-07-08 15:06:57', NULL, 'UserC1', '2022-07-08', 'reporting to c1 test', NULL, NULL, NULL, NULL, NULL, NULL),
 (14, '2022-07-13 23:08:24', '2022-07-13 23:08:24', NULL, 'Nayla R', '2022-07-13', 'adasdasdasdfassfasf\r\nhttp://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create\r\nhttp://127.0.0.1:8000/incident/incident/create', NULL, NULL, NULL, NULL, NULL, NULL),
@@ -1079,10 +1194,10 @@ INSERT INTO `incidents` (`id`, `created_at`, `updated_at`, `deleted_at`, `incide
 (21, '2022-07-25 17:37:03', '2022-07-25 17:37:03', NULL, 'User B', '2022-07-25', '$request->', NULL, NULL, NULL, NULL, NULL, NULL),
 (22, '2022-07-25 18:15:37', '2022-07-25 18:15:37', NULL, 'User B', '2022-07-21', '$notification = new Notification();', NULL, NULL, NULL, NULL, NULL, NULL),
 (23, '2022-07-25 18:17:03', '2022-07-25 18:17:03', NULL, 'User B', '2022-07-21', '$notification = new Notification();', NULL, NULL, NULL, NULL, NULL, NULL),
-(24, '2022-07-25 19:11:39', '2022-07-25 20:26:26', NULL, 'User B', '2022-07-21', '\"url\": \"\\/emergency-response-exercise\\/emergency-', NULL, NULL, NULL, '2022-07-25', NULL, 1),
-(25, '2022-07-25 21:59:45', '2022-07-25 21:59:45', NULL, 'User B', '2022-07-13', 'Incident', NULL, NULL, NULL, NULL, NULL, 0),
-(26, '2022-08-03 00:36:06', '2022-08-03 00:36:06', NULL, 'User B', '2022-08-02', 'Incident Description', NULL, NULL, NULL, NULL, NULL, 0),
-(27, '2022-08-03 00:44:10', '2022-08-03 00:46:03', NULL, 'User B', '2022-08-02', 'externalaudit', NULL, NULL, NULL, '2022-09-01', NULL, 1);
+(24, '2022-07-25 19:11:39', '2022-07-25 20:26:26', NULL, 'User B', '2022-07-21', '\"url\": \"\\/emergency-response-exercise\\/emergency-', NULL, NULL, NULL, '2022-07-25', NULL, 'closed'),
+(25, '2022-07-25 21:59:45', '2022-07-25 21:59:45', NULL, 'User B', '2022-07-13', 'Incident', NULL, NULL, NULL, NULL, NULL, 'closed'),
+(26, '2022-08-03 00:36:06', '2022-08-03 00:36:06', NULL, 'User B', '2022-08-02', 'Incident Description', NULL, NULL, NULL, NULL, NULL, 'closed'),
+(27, '2022-08-03 00:44:10', '2022-08-03 00:46:03', NULL, 'User B', '2022-08-02', 'externalaudit', NULL, NULL, NULL, '2022-09-01', NULL, 'closed');
 
 -- --------------------------------------------------------
 
@@ -1110,10 +1225,13 @@ INSERT INTO `inspection_lists` (`id`, `areas_inspected`, `health_and_safety_insp
 (4, 'ConstructionSite', 32, '2022-08-04', '2022-08-04', NULL),
 (5, 'Warehouse', 32, '2022-08-04', '2022-08-04', NULL),
 (6, 'Cars', 32, '2022-08-04', '2022-08-04', NULL),
-(7, 'Office', 33, '2022-08-09', '2022-08-09', NULL),
-(8, 'ConstructionSite', 33, '2022-08-09', '2022-08-09', NULL),
-(9, 'Warehouse', 33, '2022-08-09', '2022-08-09', NULL),
-(10, 'Cars', 33, '2022-08-09', '2022-08-09', NULL);
+(7, 'ConstructionSite', 34, '2022-08-11', '2022-08-11', NULL),
+(8, 'Warehouse', 34, '2022-08-11', '2022-08-11', NULL),
+(9, 'ConstructionSite', 35, '2022-08-11', '2022-08-11', NULL),
+(10, 'Warehouse', 35, '2022-08-11', '2022-08-11', NULL),
+(11, 'Office', 36, '2022-08-11', '2022-08-11', NULL),
+(12, 'Warehouse', 36, '2022-08-11', '2022-08-11', NULL),
+(13, 'Cars', 36, '2022-08-11', '2022-08-11', NULL);
 
 -- --------------------------------------------------------
 
@@ -1126,10 +1244,10 @@ CREATE TABLE `job_positions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `Job_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Purpose` longtext COLLATE utf8mb4_unicode_ci,
+  `Purpose` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Answerable_to` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Responsible_for` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Skills` longtext COLLATE utf8mb4_unicode_ci
+  `Skills` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1228,7 +1346,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (64, '2022_08_02_125413_create_external_audits_table', 52),
 (65, '2022_08_03_122740_create_job_positions_table', 53),
 (66, '2022_08_03_145459_create_health_and_safety_inspection_lists_table', 54),
-(67, '2022_08_05_140450_create_reminders_table', 55);
+(67, '2022_08_05_140450_create_reminders_table', 55),
+(68, '2022_08_06_105422_create_notifications_table', 56),
+(69, '2022_08_06_122948_create_employee_details_table', 57),
+(70, '2022_08_06_123127_create_task_table', 58),
+(71, '2022_08_06_153516_create_crud_events_table', 59),
+(72, '2022_08_10_083817_create_events_table', 60),
+(73, '2022_08_10_094832_create_events_table', 61);
 
 -- --------------------------------------------------------
 
@@ -1265,7 +1389,7 @@ CREATE TABLE `news` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1293,10 +1417,12 @@ CREATE TABLE `notifications` (
   `reference_issue_id` int(11) NOT NULL,
   `response` varchar(11) NOT NULL DEFAULT 'pending ',
   `date` date NOT NULL,
+  `remainder` date DEFAULT NULL,
+  `due_date` date DEFAULT NULL,
   `notifications_title` varchar(191) NOT NULL,
   `notifications_description` varchar(191) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1304,56 +1430,89 @@ CREATE TABLE `notifications` (
 -- Dumping data for table `notifications`
 --
 
-INSERT INTO `notifications` (`id`, `reporter_name`, `reciver_name`, `reference_issue_id`, `response`, `date`, `notifications_title`, `notifications_description`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(15, 'UserC1', 'UserC2', 1, 'accept', '2022-08-01', 'AddTraining Update', NULL, '2022-08-01 22:38:53', '2022-08-01 22:38:53', NULL),
-(16, 'UserC1', 'UserC2', 19, 'pending ', '2022-08-10', 'AddTraining Created', NULL, '2022-08-01 22:45:26', '2022-08-01 22:45:26', NULL),
-(17, 'UserC1', 'UserC2', 20, 'pending ', '2022-08-01', 'AddTraining Created', NULL, '2022-08-01 22:45:41', '2022-08-01 22:45:41', NULL),
-(18, 'Nayla R', 'User B', 9, 'pending ', '2022-08-18', 'AddTraining Created', NULL, '2022-08-01 23:16:47', '2022-08-01 23:16:47', NULL),
-(19, 'UserC1', 'User B', 10, 'pending ', '2022-08-17', 'AddTraining Created', NULL, '2022-08-01 23:24:19', '2022-08-01 23:24:19', NULL),
-(20, 'UserC1', 'UserC2', 11, 'pending ', '2022-08-25', 'HealthAndSafetyInspection Created', NULL, '2022-08-01 23:25:20', '2022-08-01 23:25:20', NULL),
-(21, 'UserC1', 'UserC2', 11, 'pending ', '2022-08-25', 'HealthAndSafetyInspection Updated', NULL, '2022-08-01 23:31:57', '2022-08-01 23:31:57', NULL),
-(22, 'UserC1', 'UserC2', 3, 'pending ', '2022-08-02', 'Audit Created', NULL, '2022-08-02 17:30:59', '2022-08-02 17:30:59', NULL),
-(23, 'UserC1', 'UserC2', 4, 'pending ', '2022-08-02', 'Audit Created', NULL, '2022-08-02 18:43:13', '2022-08-02 18:43:13', NULL),
-(24, 'UserC1', 'UserC2', 5, 'pending ', '2022-08-02', 'Audit Created', NULL, '2022-08-02 18:54:16', '2022-08-02 18:54:16', NULL),
-(25, 'UserC1', 'UserC2', 6, 'pending ', '2022-08-19', 'Audit Created', NULL, '2022-08-02 19:23:20', '2022-08-02 19:23:20', NULL),
-(26, 'UserC1', 'UserC2', 8, 'pending ', '2022-08-02', 'Audit Created', NULL, '2022-08-02 19:29:08', '2022-08-02 19:29:08', NULL),
-(27, 'UserC1', 'UserC2', 6, 'pending ', '2022-08-02', 'External Audit Created', NULL, '2022-08-02 21:32:28', '2022-08-02 21:32:28', NULL),
-(28, 'UserC1', 'UserC2', 15, 'pending ', '2022-08-02', 'Audit Created', NULL, '2022-08-02 22:28:20', '2022-08-02 22:28:20', NULL),
-(29, 'UserC1', 'UserC2', 16, 'pending ', '2022-08-02', 'Audit Created', NULL, '2022-08-02 22:28:35', '2022-08-02 22:28:35', NULL),
-(30, 'UserC1', 'UserC2', 7, 'pending ', '2022-08-02', 'External Audit Created', NULL, '2022-08-02 22:40:09', '2022-08-02 22:40:09', NULL),
-(31, 'UserC1', 'UserC2', 2, 'pending ', '2022-08-02', 'Incident Created', 'employee_toemployee_to', '2022-08-02 23:03:39', '2022-08-02 23:03:39', NULL),
-(32, 'UserC2', 'User B', 6, 'pending ', '2022-07-25', 'Incident Updated', NULL, '2022-08-02 23:12:43', '2022-08-02 23:12:43', NULL),
-(33, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-02', 'Incident Updated', NULL, '2022-08-02 23:20:27', '2022-08-02 23:20:27', NULL),
-(34, 'UserC1', 'User B', 6, 'pending ', '2022-07-25', 'Incident Updated', NULL, '2022-08-02 23:22:58', '2022-08-02 23:22:58', NULL),
-(35, 'UserC2', 'User B', 6, 'pending ', '2022-07-25', 'Incident Updated', NULL, '2022-08-02 23:23:12', '2022-08-02 23:23:12', NULL),
-(36, 'UserC2', 'UserC2', 1, 'pending ', '2022-08-02', 'Incident Updated', NULL, '2022-08-02 23:23:22', '2022-08-02 23:23:22', NULL),
-(37, 'UserC2', 'UserC2', 1, 'pending ', '2022-08-02', 'Incident Updated', NULL, '2022-08-02 23:23:27', '2022-08-02 23:23:27', NULL),
-(38, 'UserC2', 'UserC2', 2, 'pending ', '2022-08-02', 'Incident Updated', NULL, '2022-08-02 23:23:49', '2022-08-02 23:23:49', NULL),
-(39, 'UserC1', 'UserC2', 12, 'pending ', '2022-08-02', 'HealthAndSafetyInspection Created', NULL, '2022-08-03 00:34:27', '2022-08-03 00:34:27', NULL),
-(40, 'UserC1', 'User B', 26, 'pending ', '2022-08-02', 'Incident Created', 'Incident Description', '2022-08-03 00:36:06', '2022-08-03 00:36:06', NULL),
-(41, 'UserC1', 'UserC2', 9, 'pending ', '2022-08-02', 'External Audit Created', NULL, '2022-08-03 00:39:27', '2022-08-03 00:39:27', NULL),
-(42, 'UserC1', 'UserC2', 3, 'pending ', '2022-08-02', 'Incident Created', 'externalaudit', '2022-08-03 00:40:23', '2022-08-03 00:40:23', NULL),
-(43, 'UserC1', 'UserC2', 13, 'pending ', '2022-08-02', 'HealthAndSafetyInspection Created', NULL, '2022-08-03 00:42:59', '2022-08-03 00:42:59', NULL),
-(44, 'UserC1', 'User B', 27, 'pending ', '2022-08-02', 'Incident Created', 'externalaudit', '2022-08-03 00:44:10', '2022-08-03 00:44:10', NULL),
-(45, 'UserC2', 'User B', 27, 'pending ', '2022-09-01', 'Incident Updated', NULL, '2022-08-03 00:46:03', '2022-08-03 00:46:03', NULL),
-(46, 'UserC1', 'UserC2', 17, 'pending ', '2022-08-02', 'Audit Created', NULL, '2022-08-03 00:46:44', '2022-08-03 00:46:44', NULL),
-(47, 'UserC1', 'UserC2', 10, 'pending ', '2022-08-02', 'External Audit Created', NULL, '2022-08-03 00:48:12', '2022-08-03 00:48:12', NULL),
-(48, 'UserC1', 'UserC2', 4, 'pending ', '2022-08-02', 'Incident Created', 'Incident Description', '2022-08-03 00:49:44', '2022-08-03 00:49:44', NULL),
-(49, 'UserC2', 'UserC2', 4, 'pending ', '2022-08-17', 'Incident Updated', NULL, '2022-08-03 00:50:41', '2022-08-03 00:50:41', NULL),
-(50, 'UserC1', 'UserC2', 2, 'pending ', '2022-08-02', 'External Audit Created', NULL, '2022-08-03 15:58:58', '2022-08-03 15:58:58', NULL),
-(51, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-02', 'Incident Updated', NULL, '2022-08-03 16:29:03', '2022-08-03 16:29:03', NULL),
-(52, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-02', 'Incident Updated', NULL, '2022-08-03 16:45:13', '2022-08-03 16:45:13', NULL),
-(53, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-02', 'Incident Updated', NULL, '2022-08-03 16:48:45', '2022-08-03 16:48:45', NULL),
-(54, 'UserC1', 'UserC2', 21, 'pending ', '2022-08-03', 'AddTraining Created', NULL, '2022-08-03 16:57:14', '2022-08-03 16:57:14', NULL),
-(55, 'UserC2', 'UserC2', 1, 'accept', '2022-08-01', 'AddTraining Update', NULL, '2022-08-03 17:00:21', '2022-08-03 17:00:21', NULL),
-(56, 'UserC2', 'UserC2', 1, 'accept', '2022-08-01', 'AddTraining Update', NULL, '2022-08-03 17:06:59', '2022-08-03 17:06:59', NULL),
-(57, 'UserC2', 'UserC1', 1, 'accept', '2022-08-01', 'AddTraining Update', NULL, '2022-08-03 17:10:14', '2022-08-03 17:10:14', NULL),
-(58, 'UserC1', 'UserC2', 20, 'pending ', '2022-08-03', 'HealthAndSafetyInspection Created', NULL, '2022-08-03 22:42:57', '2022-08-03 22:42:57', NULL),
-(59, 'UserC1', 'UserC2', 30, 'pending ', '2022-08-04', 'HealthAndSafetyInspection Created', NULL, '2022-08-04 15:51:06', '2022-08-04 15:51:06', NULL),
-(60, 'UserC1', 'UserC2', 32, 'pending ', '2022-08-04', 'HealthAndSafetyInspection Created', NULL, '2022-08-04 16:36:19', '2022-08-04 16:36:19', NULL),
-(61, 'UserC2', 'UserC2', 1, 'pending ', '2022-08-16', 'HealthAndSafetyInspection Updated', NULL, '2022-08-04 16:45:26', '2022-08-04 16:45:26', NULL),
-(62, 'UserC2', 'UserC2', 1, 'pending ', '2022-08-16', 'HealthAndSafetyInspection Updated', NULL, '2022-08-04 16:47:21', '2022-08-04 16:47:21', NULL),
-(63, 'User A', 'UserC2', 33, 'pending ', '2022-08-17', 'HealthAndSafetyInspection Created', NULL, '2022-08-09 23:14:15', '2022-08-09 23:14:15', NULL);
+INSERT INTO `notifications` (`id`, `reporter_name`, `reciver_name`, `reference_issue_id`, `response`, `date`, `remainder`, `due_date`, `notifications_title`, `notifications_description`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(15, 'UserC1', 'UserC2', 1, 'accept', '2022-08-01', NULL, '2022-08-11', 'AddTraining Update', '', '2022-08-01 22:38:53', '2022-08-01 22:38:53', NULL),
+(16, 'UserC1', 'UserC2', 19, 'pending ', '2022-08-10', NULL, NULL, 'AddTraining Created', NULL, '2022-08-01 22:45:26', '2022-08-01 22:45:26', NULL),
+(17, 'UserC1', 'UserC2', 20, 'pending ', '2022-08-01', NULL, NULL, 'AddTraining Created', NULL, '2022-08-01 22:45:41', '2022-08-01 22:45:41', NULL),
+(18, 'Nayla R', 'User B', 9, 'pending ', '2022-08-18', NULL, NULL, 'AddTraining Created', NULL, '2022-08-01 23:16:47', '2022-08-01 23:16:47', NULL),
+(19, 'UserC1', 'User B', 10, 'pending ', '2022-08-17', NULL, NULL, 'AddTraining Created', NULL, '2022-08-01 23:24:19', '2022-08-01 23:24:19', NULL),
+(20, 'UserC1', 'UserC2', 11, 'pending ', '2022-08-25', NULL, NULL, 'HealthAndSafetyInspection Created', NULL, '2022-08-01 23:25:20', '2022-08-01 23:25:20', NULL),
+(21, 'UserC1', 'UserC2', 11, 'pending ', '2022-08-25', NULL, NULL, 'HealthAndSafetyInspection Updated', NULL, '2022-08-01 23:31:57', '2022-08-01 23:31:57', NULL),
+(22, 'UserC1', 'UserC2', 3, 'pending ', '2022-08-02', NULL, NULL, 'Audit Created', NULL, '2022-08-02 17:30:59', '2022-08-02 17:30:59', NULL),
+(23, 'UserC1', 'UserC2', 4, 'pending ', '2022-08-02', NULL, NULL, 'Audit Created', NULL, '2022-08-02 18:43:13', '2022-08-02 18:43:13', NULL),
+(24, 'UserC1', 'UserC2', 5, 'pending ', '2022-08-02', NULL, NULL, 'Audit Created', NULL, '2022-08-02 18:54:16', '2022-08-02 18:54:16', NULL),
+(25, 'UserC1', 'UserC2', 6, 'pending ', '2022-08-19', NULL, NULL, 'Audit Created', NULL, '2022-08-02 19:23:20', '2022-08-02 19:23:20', NULL),
+(26, 'UserC1', 'UserC2', 8, 'pending ', '2022-08-02', NULL, NULL, 'Audit Created', NULL, '2022-08-02 19:29:08', '2022-08-02 19:29:08', NULL),
+(27, 'UserC1', 'UserC2', 6, 'pending ', '2022-08-02', NULL, NULL, 'External Audit Created', NULL, '2022-08-02 21:32:28', '2022-08-02 21:32:28', NULL),
+(28, 'UserC1', 'UserC2', 15, 'pending ', '2022-08-02', NULL, NULL, 'Audit Created', NULL, '2022-08-02 22:28:20', '2022-08-02 22:28:20', NULL),
+(29, 'UserC1', 'UserC2', 16, 'pending ', '2022-08-02', NULL, NULL, 'Audit Created', NULL, '2022-08-02 22:28:35', '2022-08-02 22:28:35', NULL),
+(30, 'UserC1', 'UserC2', 7, 'pending ', '2022-08-02', NULL, NULL, 'External Audit Created', NULL, '2022-08-02 22:40:09', '2022-08-02 22:40:09', NULL),
+(31, 'UserC1', 'UserC2', 2, 'pending ', '2022-08-02', NULL, NULL, 'Incident Created', 'employee_toemployee_to', '2022-08-02 23:03:39', '2022-08-02 23:03:39', NULL),
+(32, 'UserC2', 'User B', 6, 'pending ', '2022-07-25', NULL, NULL, 'Incident Updated', NULL, '2022-08-02 23:12:43', '2022-08-02 23:12:43', NULL),
+(33, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-02', NULL, NULL, 'Incident Updated', NULL, '2022-08-02 23:20:27', '2022-08-02 23:20:27', NULL),
+(34, 'UserC1', 'User B', 6, 'pending ', '2022-07-25', NULL, NULL, 'Incident Updated', NULL, '2022-08-02 23:22:58', '2022-08-02 23:22:58', NULL),
+(35, 'UserC2', 'User B', 6, 'pending ', '2022-07-25', NULL, NULL, 'Incident Updated', NULL, '2022-08-02 23:23:12', '2022-08-02 23:23:12', NULL),
+(36, 'UserC2', 'UserC2', 1, 'pending ', '2022-08-02', NULL, NULL, 'Incident Updated', NULL, '2022-08-02 23:23:22', '2022-08-02 23:23:22', NULL),
+(37, 'UserC2', 'UserC2', 1, 'pending ', '2022-08-02', NULL, NULL, 'Incident Updated', NULL, '2022-08-02 23:23:27', '2022-08-02 23:23:27', NULL),
+(38, 'UserC2', 'UserC2', 2, 'pending ', '2022-08-02', NULL, NULL, 'Incident Updated', NULL, '2022-08-02 23:23:49', '2022-08-02 23:23:49', NULL),
+(39, 'UserC1', 'UserC2', 12, 'pending ', '2022-08-02', NULL, NULL, 'HealthAndSafetyInspection Created', NULL, '2022-08-03 00:34:27', '2022-08-03 00:34:27', NULL),
+(40, 'UserC1', 'User B', 26, 'pending ', '2022-08-02', NULL, NULL, 'Incident Created', 'Incident Description', '2022-08-03 00:36:06', '2022-08-03 00:36:06', NULL),
+(41, 'UserC1', 'UserC2', 9, 'pending ', '2022-08-02', NULL, NULL, 'External Audit Created', NULL, '2022-08-03 00:39:27', '2022-08-03 00:39:27', NULL),
+(42, 'UserC1', 'UserC2', 3, 'pending ', '2022-08-02', NULL, NULL, 'Incident Created', 'externalaudit', '2022-08-03 00:40:23', '2022-08-03 00:40:23', NULL),
+(43, 'UserC1', 'UserC2', 13, 'pending ', '2022-08-02', NULL, NULL, 'HealthAndSafetyInspection Created', NULL, '2022-08-03 00:42:59', '2022-08-03 00:42:59', NULL),
+(44, 'UserC1', 'User B', 27, 'pending ', '2022-08-02', NULL, NULL, 'Incident Created', 'externalaudit', '2022-08-03 00:44:10', '2022-08-03 00:44:10', NULL),
+(45, 'UserC2', 'User B', 27, 'pending ', '2022-09-01', NULL, NULL, 'Incident Updated', NULL, '2022-08-03 00:46:03', '2022-08-03 00:46:03', NULL),
+(46, 'UserC1', 'UserC2', 17, 'pending ', '2022-08-02', NULL, NULL, 'Audit Created', NULL, '2022-08-03 00:46:44', '2022-08-03 00:46:44', NULL),
+(47, 'UserC1', 'UserC2', 10, 'pending ', '2022-08-02', NULL, NULL, 'External Audit Created', NULL, '2022-08-03 00:48:12', '2022-08-03 00:48:12', NULL),
+(48, 'UserC1', 'UserC2', 4, 'pending ', '2022-08-02', NULL, NULL, 'Incident Created', 'Incident Description', '2022-08-03 00:49:44', '2022-08-03 00:49:44', NULL),
+(49, 'UserC2', 'UserC2', 4, 'pending ', '2022-08-17', NULL, NULL, 'Incident Updated', NULL, '2022-08-03 00:50:41', '2022-08-03 00:50:41', NULL),
+(50, 'UserC1', 'UserC2', 2, 'pending ', '2022-08-02', NULL, NULL, 'External Audit Created', NULL, '2022-08-03 15:58:58', '2022-08-03 15:58:58', NULL),
+(51, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-02', NULL, NULL, 'Incident Updated', NULL, '2022-08-03 16:29:03', '2022-08-03 16:29:03', NULL),
+(52, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-02', NULL, NULL, 'Incident Updated', NULL, '2022-08-03 16:45:13', '2022-08-03 16:45:13', NULL),
+(53, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-02', NULL, NULL, 'Incident Updated', NULL, '2022-08-03 16:48:45', '2022-08-03 16:48:45', NULL),
+(54, 'UserC1', 'UserC2', 21, 'pending ', '2022-08-03', NULL, NULL, 'AddTraining Created', NULL, '2022-08-03 16:57:14', '2022-08-03 16:57:14', NULL),
+(55, 'UserC2', 'UserC2', 1, 'accept', '2022-08-01', NULL, NULL, 'AddTraining Update', NULL, '2022-08-03 17:00:21', '2022-08-03 17:00:21', NULL),
+(56, 'UserC2', 'UserC2', 1, 'accept', '2022-08-01', NULL, NULL, 'AddTraining Update', NULL, '2022-08-03 17:06:59', '2022-08-03 17:06:59', NULL),
+(57, 'UserC2', 'UserC1', 1, 'accept', '2022-08-01', NULL, NULL, 'AddTraining Update', NULL, '2022-08-03 17:10:14', '2022-08-03 17:10:14', NULL),
+(58, 'UserC1', 'UserC2', 20, 'pending ', '2022-08-03', NULL, NULL, 'HealthAndSafetyInspection Created', NULL, '2022-08-03 22:42:57', '2022-08-03 22:42:57', NULL),
+(59, 'UserC1', 'UserC2', 30, 'pending ', '2022-08-04', NULL, NULL, 'HealthAndSafetyInspection Created', NULL, '2022-08-04 15:51:06', '2022-08-04 15:51:06', NULL),
+(60, 'UserC1', 'UserC2', 32, 'pending ', '2022-08-04', NULL, NULL, 'HealthAndSafetyInspection Created', NULL, '2022-08-04 16:36:19', '2022-08-04 16:36:19', NULL),
+(61, 'UserC2', 'UserC2', 1, 'pending ', '2022-08-16', NULL, NULL, 'HealthAndSafetyInspection Updated', NULL, '2022-08-04 16:45:26', '2022-08-04 16:45:26', NULL),
+(62, 'UserC2', 'UserC2', 1, 'pending ', '2022-08-16', NULL, '2022-08-11', 'HealthAndSafetyInspection Updated', NULL, '2022-08-04 16:47:21', '2022-08-04 16:47:21', NULL),
+(63, 'UserC2', 'User B', 6, 'pending ', '2022-07-25', NULL, '2022-08-30', 'Incident Updated', NULL, '2022-08-11 00:18:14', '2022-08-11 00:18:14', NULL),
+(64, 'UserC2', 'User B', 11, 'pending ', '2022-08-10', NULL, '2022-08-30', 'Incident Updated', NULL, '2022-08-11 00:20:51', '2022-08-11 00:20:51', NULL),
+(65, 'UserC2', 'User B', 9, 'pending ', '2022-08-10', NULL, '2022-08-30', 'Incident Updated', NULL, '2022-08-11 00:23:21', '2022-08-11 00:23:21', NULL),
+(66, 'UserC2', 'User B', 9, 'pending ', '2022-08-10', NULL, '2022-08-30', 'Incident Updated', NULL, '2022-08-11 00:23:51', '2022-08-11 00:23:51', NULL),
+(67, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Incident Alert', '', '2022-08-11 16:19:54', '2022-08-11 16:19:54', NULL),
+(80, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Incident Alert', '', '2022-08-11 16:27:31', '2022-08-11 16:27:31', NULL),
+(81, 'UserC2', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Incident Alert', NULL, '2022-08-11 16:27:31', '2022-08-11 16:27:31', NULL),
+(82, 'UserC1', 'UserC2', 34, 'pending ', '2022-08-12', NULL, NULL, 'HealthAndSafetyInspection Created', NULL, '2022-08-11 17:22:43', '2022-08-11 17:22:43', NULL),
+(83, 'UserC1', 'UserC2', 35, 'pending ', '2022-08-20', NULL, NULL, 'HealthAndSafetyInspection Created', NULL, '2022-08-11 17:25:03', '2022-08-11 17:25:03', NULL),
+(84, 'UserC1', 'UserC2', 36, 'pending ', '2022-08-27', '2022-08-26', NULL, 'HealthAndSafetyInspection Created', NULL, '2022-08-11 17:45:27', '2022-08-11 17:45:27', NULL),
+(85, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Incident Alert', '', '2022-08-11 17:45:35', '2022-08-11 17:45:35', NULL),
+(86, 'UserC2', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Incident Alert', NULL, '2022-08-11 17:45:35', '2022-08-11 17:45:35', NULL),
+(87, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'AddTraining Update Alert', '', '2022-08-11 17:55:27', '2022-08-11 17:55:27', NULL),
+(88, 'UserC2', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'HealthAndSafetyInspection Updated Alert', NULL, '2022-08-11 17:55:27', '2022-08-11 17:55:27', NULL),
+(89, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 17:57:47', '2022-08-11 17:57:47', NULL),
+(90, 'UserC2', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', NULL, '2022-08-11 17:57:47', '2022-08-11 17:57:47', NULL),
+(91, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 17:57:55', '2022-08-11 17:57:55', NULL),
+(92, 'UserC2', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', NULL, '2022-08-11 17:57:55', '2022-08-11 17:57:55', NULL),
+(93, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:53:27', '2022-08-11 21:53:27', NULL),
+(94, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:53:36', '2022-08-11 21:53:36', NULL),
+(95, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:53:52', '2022-08-11 21:53:52', NULL),
+(96, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:54:41', '2022-08-11 21:54:41', NULL),
+(97, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:54:44', '2022-08-11 21:54:44', NULL),
+(98, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:54:47', '2022-08-11 21:54:47', NULL),
+(99, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:54:50', '2022-08-11 21:54:50', NULL),
+(100, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:54:54', '2022-08-11 21:54:54', NULL),
+(101, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:54:57', '2022-08-11 21:54:57', NULL),
+(102, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:55:00', '2022-08-11 21:55:00', NULL),
+(103, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:55:04', '2022-08-11 21:55:04', NULL),
+(104, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:55:07', '2022-08-11 21:55:07', NULL),
+(105, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:55:10', '2022-08-11 21:55:10', NULL),
+(106, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:56:39', '2022-08-11 21:56:39', NULL),
+(107, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 21:57:56', '2022-08-11 21:57:56', NULL),
+(108, 'UserC1', 'UserC2', 1, 'pending ', '2022-08-11', NULL, NULL, 'Due Date Alert', '', '2022-08-11 22:26:11', '2022-08-11 22:26:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -1573,208 +1732,223 @@ CREATE TABLE `permission_role` (
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (98, 1),
-(99, 1),
-(100, 1),
-(101, 1),
-(106, 1),
-(107, 1),
-(108, 1),
-(109, 1),
-(110, 1),
-(111, 1),
-(112, 1),
-(113, 1),
-(114, 1),
-(115, 1),
-(116, 1),
-(117, 1),
-(118, 1),
-(119, 1),
-(120, 1),
-(121, 1),
-(122, 1),
-(123, 1),
-(124, 1),
-(125, 1),
-(134, 1),
-(135, 1),
-(136, 1),
-(137, 1),
-(138, 1),
-(139, 1),
-(140, 1),
-(141, 1),
-(142, 1),
-(143, 1),
-(144, 1),
-(145, 1),
-(146, 1),
-(147, 1),
-(148, 1),
-(149, 1),
-(150, 1),
-(151, 1),
-(152, 1),
-(153, 1),
-(162, 1),
-(163, 1),
-(164, 1),
-(165, 1),
-(166, 1),
-(167, 1),
-(168, 1),
-(169, 1),
 (98, 2),
-(99, 2),
-(100, 2),
-(106, 2),
-(107, 2),
-(108, 2),
-(110, 2),
-(111, 2),
-(112, 2),
-(114, 2),
-(115, 2),
-(116, 2),
-(118, 2),
-(119, 2),
-(120, 2),
-(122, 2),
-(123, 2),
-(124, 2),
-(134, 2),
-(135, 2),
-(136, 2),
-(138, 2),
-(139, 2),
-(140, 2),
-(142, 2),
-(143, 2),
-(144, 2),
-(146, 2),
-(147, 2),
-(148, 2),
-(150, 2),
-(151, 2),
-(152, 2),
-(162, 2),
-(163, 2),
-(164, 2),
-(166, 2),
-(167, 2),
-(168, 2),
 (98, 4),
-(99, 4),
-(100, 4),
-(101, 4),
-(106, 4),
-(107, 4),
-(108, 4),
-(109, 4),
-(110, 4),
-(111, 4),
-(112, 4),
-(113, 4),
-(114, 4),
-(115, 4),
-(116, 4),
-(117, 4),
-(118, 4),
-(119, 4),
-(120, 4),
-(121, 4),
-(122, 4),
-(123, 4),
-(124, 4),
-(125, 4),
-(134, 4),
-(135, 4),
-(136, 4),
-(137, 4),
-(138, 4),
-(139, 4),
-(140, 4),
-(141, 4),
-(142, 4),
-(143, 4),
-(144, 4),
-(145, 4),
-(146, 4),
-(147, 4),
-(148, 4),
-(149, 4),
-(150, 4),
-(151, 4),
-(152, 4),
-(153, 4),
-(162, 4),
-(163, 4),
-(164, 4),
-(165, 4),
-(166, 4),
-(167, 4),
-(168, 4),
-(169, 4),
 (98, 7),
-(99, 7),
-(100, 7),
-(106, 7),
-(107, 7),
-(108, 7),
-(110, 7),
-(111, 7),
-(112, 7),
-(114, 7),
-(115, 7),
-(116, 7),
-(118, 7),
-(119, 7),
-(120, 7),
-(122, 7),
-(123, 7),
-(124, 7),
-(134, 7),
-(135, 7),
-(136, 7),
-(138, 7),
-(139, 7),
-(140, 7),
-(142, 7),
-(143, 7),
-(144, 7),
-(146, 7),
-(147, 7),
-(148, 7),
-(150, 7),
-(151, 7),
-(152, 7),
-(162, 7),
-(163, 7),
-(164, 7),
-(166, 7),
-(167, 7),
-(168, 7),
-(100, 8),
-(108, 8),
-(112, 8),
-(116, 8),
-(120, 8),
-(123, 8),
-(124, 8),
-(135, 8),
-(136, 8),
-(140, 8),
-(144, 8),
-(147, 8),
-(148, 8),
-(151, 8),
-(152, 8),
-(164, 8),
-(168, 8),
 (98, 9),
+(99, 1),
+(99, 2),
+(99, 4),
+(99, 7),
 (99, 9),
+(100, 1),
+(100, 2),
+(100, 4),
+(100, 7),
+(100, 8),
 (100, 9),
-(101, 9);
+(101, 1),
+(101, 4),
+(101, 9),
+(106, 1),
+(106, 2),
+(106, 4),
+(106, 7),
+(107, 1),
+(107, 2),
+(107, 4),
+(107, 7),
+(108, 1),
+(108, 2),
+(108, 4),
+(108, 7),
+(108, 8),
+(109, 1),
+(109, 4),
+(110, 1),
+(110, 2),
+(110, 4),
+(110, 7),
+(111, 1),
+(111, 2),
+(111, 4),
+(111, 7),
+(112, 1),
+(112, 2),
+(112, 4),
+(112, 7),
+(112, 8),
+(113, 1),
+(113, 4),
+(114, 1),
+(114, 2),
+(114, 4),
+(114, 7),
+(115, 1),
+(115, 2),
+(115, 4),
+(115, 7),
+(116, 1),
+(116, 2),
+(116, 4),
+(116, 7),
+(116, 8),
+(117, 1),
+(117, 4),
+(118, 1),
+(118, 2),
+(118, 4),
+(118, 7),
+(119, 1),
+(119, 2),
+(119, 4),
+(119, 7),
+(120, 1),
+(120, 2),
+(120, 4),
+(120, 7),
+(120, 8),
+(121, 1),
+(121, 4),
+(122, 1),
+(122, 2),
+(122, 4),
+(122, 7),
+(123, 1),
+(123, 2),
+(123, 4),
+(123, 7),
+(123, 8),
+(124, 1),
+(124, 2),
+(124, 4),
+(124, 7),
+(124, 8),
+(125, 1),
+(125, 4),
+(126, 1),
+(126, 2),
+(126, 4),
+(126, 7),
+(127, 1),
+(127, 2),
+(127, 4),
+(127, 7),
+(128, 1),
+(128, 2),
+(128, 4),
+(128, 7),
+(128, 8),
+(129, 1),
+(129, 4),
+(134, 1),
+(134, 2),
+(134, 4),
+(134, 7),
+(135, 1),
+(135, 2),
+(135, 4),
+(135, 7),
+(135, 8),
+(136, 1),
+(136, 2),
+(136, 4),
+(136, 7),
+(136, 8),
+(137, 1),
+(137, 4),
+(138, 1),
+(138, 2),
+(138, 4),
+(138, 7),
+(139, 1),
+(139, 2),
+(139, 4),
+(139, 7),
+(140, 1),
+(140, 2),
+(140, 4),
+(140, 7),
+(140, 8),
+(141, 1),
+(141, 4),
+(142, 1),
+(142, 2),
+(142, 4),
+(142, 7),
+(143, 1),
+(143, 2),
+(143, 4),
+(143, 7),
+(144, 1),
+(144, 2),
+(144, 4),
+(144, 7),
+(144, 8),
+(145, 1),
+(145, 4),
+(146, 1),
+(146, 2),
+(146, 4),
+(146, 7),
+(147, 1),
+(147, 2),
+(147, 4),
+(147, 7),
+(147, 8),
+(148, 1),
+(148, 2),
+(148, 4),
+(148, 7),
+(148, 8),
+(149, 1),
+(149, 4),
+(150, 1),
+(150, 2),
+(150, 4),
+(150, 7),
+(151, 1),
+(151, 2),
+(151, 4),
+(151, 7),
+(151, 8),
+(152, 1),
+(152, 2),
+(152, 4),
+(152, 7),
+(152, 8),
+(153, 1),
+(153, 4),
+(162, 1),
+(162, 2),
+(162, 4),
+(162, 7),
+(163, 1),
+(163, 2),
+(163, 4),
+(163, 7),
+(164, 1),
+(164, 2),
+(164, 4),
+(164, 7),
+(164, 8),
+(165, 1),
+(165, 4),
+(166, 1),
+(166, 2),
+(166, 4),
+(166, 7),
+(167, 1),
+(167, 2),
+(167, 4),
+(167, 7),
+(168, 1),
+(168, 2),
+(168, 4),
+(168, 7),
+(168, 8),
+(169, 1),
+(169, 4);
 
 -- --------------------------------------------------------
 
@@ -1815,7 +1989,7 @@ INSERT INTO `personal_records` (`id`, `created_at`, `updated_at`, `deleted_at`, 
 CREATE TABLE `profiles` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED DEFAULT NULL,
-  `bio` text COLLATE utf8mb4_unicode_ci,
+  `bio` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gender` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `dob` date DEFAULT NULL,
   `pic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1855,7 +2029,8 @@ INSERT INTO `profiles` (`id`, `user_id`, `bio`, `gender`, `dob`, `pic`, `country
 (31, 33, 'return Auth::user();', 'male', NULL, 'no_avatar.jpg', NULL, NULL, NULL, NULL, NULL, '2022-08-04 23:29:40', '2022-08-04 23:29:40'),
 (32, 34, 'auth()->user()->hasRole(\'UserC1\')', 'male', NULL, 'no_avatar.jpg', NULL, NULL, NULL, NULL, NULL, '2022-08-05 14:58:29', '2022-08-05 14:58:29'),
 (33, 35, 'ismailrehman2', 'male', NULL, 'no_avatar.jpg', NULL, NULL, NULL, NULL, NULL, '2022-08-05 16:05:55', '2022-08-05 16:05:55'),
-(34, 36, 'ismailrehman2@gmail.com', 'male', NULL, 'no_avatar.jpg', NULL, NULL, NULL, NULL, NULL, '2022-08-05 16:39:27', '2022-08-05 16:39:27');
+(34, 36, 'ismailrehman2@gmail.com', 'male', NULL, 'no_avatar.jpg', NULL, NULL, NULL, NULL, NULL, '2022-08-05 16:39:27', '2022-08-05 16:39:27'),
+(35, 61, 'use Illuminate\\Notifications\\Notification;', 'male', NULL, 'no_avatar.jpg', NULL, NULL, NULL, NULL, NULL, '2022-08-06 20:45:47', '2022-08-06 20:45:47');
 
 -- --------------------------------------------------------
 
@@ -1867,8 +2042,8 @@ CREATE TABLE `reminders` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `lead_id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `reminder` text COLLATE utf8mb4_unicode_ci,
-  `note` text COLLATE utf8mb4_unicode_ci,
+  `reminder` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `note` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `reminder_date` date DEFAULT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1893,7 +2068,6 @@ INSERT INTO `reminders` (`id`, `lead_id`, `user_id`, `reminder`, `note`, `remind
 
 CREATE TABLE `roles` (
   `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(191) NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `label` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` date DEFAULT NULL,
@@ -1904,12 +2078,12 @@ CREATE TABLE `roles` (
 -- Dumping data for table `roles`
 --
 
-INSERT INTO `roles` (`id`, `user_id`, `name`, `label`, `created_at`, `updated_at`) VALUES
-(1, 0, 'User A', NULL, '2020-07-16', '2022-06-29'),
-(2, 0, 'User B', NULL, '2020-07-16', '2022-06-29'),
-(4, 0, 'Developer', NULL, '2020-07-16', '2022-06-29'),
-(7, 31, 'UserC1', NULL, '2020-07-16', '2022-08-04'),
-(8, 0, 'UserC2', NULL, '1900-01-23', '2022-06-29');
+INSERT INTO `roles` (`id`, `name`, `label`, `created_at`, `updated_at`) VALUES
+(1, 'User A', NULL, '2020-07-16', '2022-06-29'),
+(2, 'User B', NULL, '2020-07-16', '2022-06-29'),
+(4, 'Developer', NULL, '2020-07-16', '2022-06-29'),
+(7, 'UserC1', NULL, '2020-07-16', '2022-08-04'),
+(8, 'UserC2', NULL, '1900-01-23', '2022-06-29');
 
 -- --------------------------------------------------------
 
@@ -1929,26 +2103,27 @@ CREATE TABLE `role_user` (
 INSERT INTO `role_user` (`role_id`, `user_id`) VALUES
 (1, 1),
 (2, 2),
+(2, 21),
+(2, 28),
+(2, 35),
+(2, 61),
 (4, 7),
 (7, 16),
-(8, 17),
-(8, 19),
-(8, 20),
-(2, 21),
 (7, 22),
-(8, 23),
-(8, 24),
 (7, 25),
 (7, 27),
-(2, 28),
-(8, 29),
 (7, 30),
-(8, 31),
 (7, 32),
 (7, 33),
 (7, 34),
-(2, 35),
-(7, 36);
+(7, 36),
+(8, 17),
+(8, 19),
+(8, 20),
+(8, 23),
+(8, 24),
+(8, 29),
+(8, 31);
 
 -- --------------------------------------------------------
 
@@ -2007,6 +2182,30 @@ INSERT INTO `tags` (`id`, `name`, `slug`, `created_at`, `updated_at`, `deleted_a
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `task`
+--
+
+CREATE TABLE `task` (
+  `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notifiable` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `due_date` date DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `task`
+--
+
+INSERT INTO `task` (`id`, `name`, `notifiable`, `description`, `due_date`, `created_at`, `updated_at`) VALUES
+('4bc4d202-1595-11ed-ac6f-1cb72c3032dd', 'task1', 'task1', 'task1', '2022-08-31', NULL, NULL),
+('4bc50260-1595-11ed-ac6f-1cb72c3032dd', 'task2', 'task2', 'task2', '2022-08-31', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tests`
 --
 
@@ -2048,10 +2247,10 @@ CREATE TABLE `users` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Managed_by` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Managed_by` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `provider_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `provider` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` int(11) DEFAULT '1' COMMENT '1-active,2-banned',
+  `status` int(11) DEFAULT 1 COMMENT '1-active,2-banned',
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -2081,7 +2280,9 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `Managed_by`, `provider_
 (33, 'Muhammad Faisal Qasim3', 'mfaisalqasimtesting1233@gmail.com', '$2y$10$P4hzBML0nFrg2.mIeskoyOataj.b6oILNGedlViBu29seaMN5u5Nq', 'User B2', NULL, NULL, 1, NULL, '2022-08-04 23:29:39', '2022-08-04 23:29:40', NULL),
 (34, 'Muhammad Faisal Qasim4', 'mfaisalqasimtesting1234@gmail.com', '$2y$10$m80uNtJAx1sEXNm4AGr/5OaQ.JTSkXfzBVJUC6eTJ6.JvReiW8PwK', 'User B', NULL, NULL, 1, NULL, '2022-08-05 14:58:29', '2022-08-05 14:58:29', NULL),
 (35, 'ismailrehman2', 'ismailrehman2@gmail.com', '$2y$10$A7AKzawIzKw53G2zqD/g8OCBffaP76maIcDHzgDWjzqTygaMBvvE6', 'User A', NULL, NULL, 1, NULL, '2022-08-05 16:05:55', '2022-08-05 16:05:55', NULL),
-(36, 'Muhammad Faisal Qasim5', 'mfaisalqasimtesting1235@gmail.com', '$2y$10$u4cLUb2YWowsCLtnqewXDuLSVzHG8n9FJ/2lg1V8qI9QkClEolP.6', 'ismailrehman2', NULL, NULL, 1, NULL, '2022-08-05 16:39:27', '2022-08-05 16:39:27', NULL);
+(36, 'Muhammad Faisal Qasim5', 'mfaisalqasimtesting1235@gmail.com', '$2y$10$u4cLUb2YWowsCLtnqewXDuLSVzHG8n9FJ/2lg1V8qI9QkClEolP.6', 'ismailrehman2', NULL, NULL, 1, NULL, '2022-08-05 16:39:27', '2022-08-05 16:39:27', NULL),
+(60, 'regiater test5', 'regiaterTest5@user.com', '$2y$10$xFhDiObtTJ6QB0JnK8WFpOY8rPexXUG2KfVe7p3AuYuvwn1YfooMS', NULL, NULL, NULL, 1, NULL, '2022-08-06 20:44:54', '2022-08-06 20:44:54', NULL),
+(61, 'Muhammad Faisal Qasim2', 'mfaisalqasimtesting123@gmail.com', '$2y$10$CzQByxHXklHOFjIQ.g9Rfu3mLgcVWtHXuq50PxutKse9.YLvjZiqa', 'User A', NULL, NULL, 1, NULL, '2022-08-06 20:45:47', '2022-08-06 20:45:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -2181,6 +2382,12 @@ ALTER TABLE `calenders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `crud_events`
+--
+ALTER TABLE `crud_events`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `documents`
 --
 ALTER TABLE `documents`
@@ -2196,6 +2403,18 @@ ALTER TABLE `documents_file`
 -- Indexes for table `emergency_response_exercises`
 --
 ALTER TABLE `emergency_response_exercises`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2335,6 +2554,12 @@ ALTER TABLE `tags`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `task`
+--
+ALTER TABLE `task`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tests`
 --
 ALTER TABLE `tests`
@@ -2366,7 +2591,7 @@ ALTER TABLE `vacations`
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=512;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=576;
 
 --
 -- AUTO_INCREMENT for table `add_trainings`
@@ -2408,7 +2633,13 @@ ALTER TABLE `blog_comments`
 -- AUTO_INCREMENT for table `calenders`
 --
 ALTER TABLE `calenders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `crud_events`
+--
+ALTER TABLE `crud_events`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `documents`
@@ -2429,6 +2660,18 @@ ALTER TABLE `emergency_response_exercises`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `external_audits`
 --
 ALTER TABLE `external_audits`
@@ -2444,7 +2687,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `health_and_safety_inspections`
 --
 ALTER TABLE `health_and_safety_inspections`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `health_and_safety_inspection_lists`
@@ -2462,7 +2705,7 @@ ALTER TABLE `incidents`
 -- AUTO_INCREMENT for table `inspection_lists`
 --
 ALTER TABLE `inspection_lists`
-  MODIFY `id` int(191) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(191) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `job_positions`
@@ -2480,7 +2723,7 @@ ALTER TABLE `management_reviews`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `motivational_quotes`
@@ -2498,7 +2741,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(191) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(191) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -2522,7 +2765,7 @@ ALTER TABLE `personal_records`
 -- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `reminders`
@@ -2558,7 +2801,7 @@ ALTER TABLE `tips`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `vacations`
