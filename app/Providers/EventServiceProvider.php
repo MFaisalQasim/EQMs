@@ -7,7 +7,7 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use App\Listeners\SeedTestDataForNewUser;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
-use App\Listeners\SendNewUserNotification;
+// use App\Listeners\SendNewUserNotification;
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -18,7 +18,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
-            SendNewUserNotification::class,
+            // SendNewUserNotification::class,
         ],
     ];
     // protected $listen = [
