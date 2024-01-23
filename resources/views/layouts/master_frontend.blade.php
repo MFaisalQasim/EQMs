@@ -18,8 +18,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
     <link href="{{ asset('bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
 
-
-
     @if (session()->get('theme-layout') == 'fix-header')
         <link href="{{ asset('css/style-fix-header.css') }}" rel="stylesheet">
         <link href="{{ asset('css/colors/default.css') }}" id="theme" rel="stylesheet">
@@ -33,257 +31,321 @@
 </head>
 
 <body>
-    <!-- Header Start -->
-    {{-- @foreach ($notification as $item)
-        @if ($item->due_date == date('Y-m-d') && $item->due_date != null)
-            @dd($item->due_date, 'in loop');
+    <div id="wrapper">
+        <div class="preloader">
+            <div class="cssload-speeding-wheel"></div>
+        </div>
 
-            @dd($item->due_date, date('Y,m,d'));
-            @dd(date('Y,m,d'));
-            @dd('its due date');
-        @elseif($item->due_date != date('Y-m-d'))
-            @dd($item->due_date, 'elseif', date('Y-m-d'));
-        @else
-            @dd($item->due_date, 'else');
-        @endif
-    @endforeach --}}
+        <!-- Header Start -->
+        {{-- @foreach ($notification as $item)
+            @if ($item->due_date == date('Y-m-d') && $item->due_date != null)
+                @dd($item->due_date, 'in loop');
 
-    <header class="site-header">
-        <div class="site-header__top">
-            <div class="wrapper site-header__wrapper p-1">
-                <div class="site-header__start">
-                    <ul class="">
-                        <li class=""><a href="#">About</a></li>
-                        <li class=""><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="d-flex header_bar">
-                    <div class="">
-                        <img class="img-fluid company-icon" src="{{ asset('website/images/COBE-Logo1.png') }}"
-                            alt="">
+                @dd($item->due_date, date('Y,m,d'));
+                @dd(date('Y,m,d'));
+                @dd('its due date');
+            @elseif($item->due_date != date('Y-m-d'))
+                @dd($item->due_date, 'elseif', date('Y-m-d'));
+            @else
+                @dd($item->due_date, 'else');
+            @endif
+        @endforeach --}}
+
+        <header class="site-header">
+            <div class="site-header__top">
+                <div class="wrapper site-header__wrapper p-1">
+                    <div class="site-header__start">
+                        <ul class="">
+                            <li class=""><a href="#">About</a></li>
+                            <li class=""><a href="#">Contact</a></li>
+                        </ul>
                     </div>
-                    <div class="bar">
-                        <a href="/" class="brand bar_text_large">EQMS</a>
+                    <div class="d-flex header_bar">
+                        <div class="">
+                            <img class="img-fluid company-icon" src="{{ asset('website/images/COBE-Logo1.png') }}"
+                                alt="">
+                        </div>
+                        <div class="bar">
+                            <a href="/" class="brand bar_text_large">EQMS</a>
+                        </div>
                     </div>
-                </div>
-                <div class="site-header__end d-flex">
-                    <nav class="navbar navbar-dark navbar-expand-sm mt-2">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"> </span>
-                        </button>
-                        @if (Auth::check())
-                            <div class="collapse navbar-collapse" id="navbar-list-4">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item dropdown d-flex mt-4">
-                                        <a class="nav-link " href="#" id="navbarDropdownMenuLink" role="button"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <img class="img-fluid alert_icon"
-                                                src="{{ asset('website/images/alert_icon.png') }}" alt="">
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            @if (auth()->user()->hasRole('User B') ||
-                                                auth()->user()->hasRole('UserC1') ||
-                                                auth()->user()->hasRole('UserC2'))
-                                                @foreach ($notification as $item)
-                                                    @if (Auth::user()->name == $item->reciver_name)
-                                                        <div class="p-2 notification_border">
-                                                            <div class="d_flex_space_between">
-                                                                <h6 class="post-title mr-4">
-                                                                    <a>
-                                                                        {{ $item->notifications_title }}</a>
-                                                                </h6>
-                                                                <h6 class="post-title">
-                                                                    <a href="#">
-                                                                        {{ $item->reporter_name }}</a>
-                                                                </h6>
+                    <div class="site-header__end d-flex">
+                        <nav class="navbar navbar-dark navbar-expand-sm mt-2">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"> </span>
+                            </button>
+                            @if (Auth::check())
+                                <div class="collapse navbar-collapse" id="navbar-list-4">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item dropdown d-flex mt-4">
+                                            <a class="nav-link " href="#" id="navbarDropdownMenuLink"
+                                                role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                <img class="img-fluid alert_icon"
+                                                    src="{{ asset('website/images/alert_icon.png') }}" alt="">
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                                @if (auth()->user()->hasRole('User B') ||
+                                                        auth()->user()->hasRole('UserC1') ||
+                                                        auth()->user()->hasRole('UserC2'))
+                                                    @foreach ($notification as $item)
+                                                        @if (Auth::user()->name == $item->reciver_name)
+                                                            <div class="p-2 notification_border">
+                                                                <div class="d_flex_space_between">
+                                                                    <h6 class="post-title mr-4">
+                                                                        <a>
+                                                                            {{ $item->notifications_title }}</a>
+                                                                    </h6>
+                                                                    <h6 class="post-title">
+                                                                        <a href="#">
+                                                                            {{ $item->reporter_name }}</a>
+                                                                    </h6>
+                                                                </div>
+                                                                <div class="d_flex_space_between">
+                                                                    <a href="#" class="read-more "> <img
+                                                                            class="Clock_icon"
+                                                                            src="{{ asset('website/images/Clock.png') }}"
+                                                                            alt="">{{ date_format($item->created_at, 'H:i') }}</a>
+                                                                    <a href="#"
+                                                                        class="read-more">{{ date_format($item->created_at, 'Y/m/d') }}</a>
+                                                                </div>
                                                             </div>
-                                                            <div class="d_flex_space_between">
-                                                                <a href="#" class="read-more "> <img
-                                                                        class="Clock_icon"
-                                                                        src="{{ asset('website/images/Clock.png') }}"
-                                                                        alt="">{{ date_format($item->created_at, 'H:i') }}</a>
-                                                                <a href="#"
-                                                                    class="read-more">{{ date_format($item->created_at, 'Y/m/d') }}</a>
-                                                            </div>
-                                                        </div>
-                                                    @else
-                                                    @endif
-                                                @endforeach
-                                            @else
-                                                <h1>Nothing TO Show</h1>
-                                            @endif
+                                                        @else
+                                                        @endif
+                                                    @endforeach
+                                                @else
+                                                    <h1>Nothing TO Show</h1>
+                                                @endif
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            @endif
+                        </nav>
+                        <nav class="navbar navbar-dark navbar-expand-sm mt-2">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            @if (Auth::check())
+                                <div class="collapse navbar-collapse" id="navbar-list-4">
+                                    <ul class="navbar-nav">
+                                        <div class="d_flex_center"><img
+                                                src="{{ asset('website/images/profile_icon.png') }}" alt="">
                                         </div>
-                                    </li>
-                                </ul>
+                                        <div class="profile_name d_flex_center p-1 w-50">
+                                            {{ auth()->user()->name }}
+                                            <br>
+                                        </div>
+                                        <li class="nav-item dropdown d-flex mt-4">
+                                            <a class="nav-link " href="#" id="navbarDropdownMenuLink"
+                                                role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                <img src="{{ asset('website/images/dropdown_arrow.png') }}"
+                                                    alt="">
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                                <a class="dropdown-item" href="/logout"
+                                                    route="{{ route('logout') }}">Log
+                                                    Out</a>
+                                                <a class="dropdown-item" href="/account-settings">Account Settings</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            @endif
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="site-header__bottom custom_container">
+                <div class="wrapper site-header__wrapper p-0">
+                    <div class="site-header__start">
+                        <nav class="nav">
+                            <button class="nav__toggle menu_btn" aria-expanded="false" type="button">
+                                menu
+                            </button>
+                            <ul class="nav__wrapper">
+
+                                <li class=" ">
+                                    <a class="bar_text_large nav__item nav__item_border" href="{{ url('/') }}">
+                                        <img src="{{ asset('website/images/dashboard_logo.png') }}"
+                                            alt="">Dashboard</a>
+                                </li>
+                                @foreach ($laravelAdminMenus->menus as $section)
+                                    @if (count(collect($section->items)) > 0)
+                                        @foreach ($section->items as $menu)
+                                            @can('view-' . str_slug($menu->title))
+                                                <li>
+                                                    @if (isset($menu->dropDown))
+                                                        <a class="bar_text_large nav__item nav__item_border"
+                                                            href="javascript::void(0)" data-toggle="dropdown"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                            <i class="glyphicon {{ $menu->icon }} fa-fw"></i>
+                                                            <span class="hide-menu"> {{ $menu->title }}</span>
+                                                        </a>
+                                                    @else
+                                                        <a class="bar_text_large nav__item nav__item_border"
+                                                            href="{{ url($menu->url) }} ">
+                                                            <i class="glyphicon {{ $menu->icon }} fa-fw"></i>
+                                                            <span class="hide-menu"> {{ $menu->title }}</span>
+                                                        </a>
+                                                    @endif
+
+                                                    @if (isset($menu->dropDown))
+                                                        <ul class="collapse" aria-expanded="true">
+                                                            @foreach ($menu->dropDown as $dropDownMenu)
+                                                                <li
+                                                                    aria-labelledby="dropdownMenuButton_{{ $menu->title }}">
+                                                                    <a href="{{ url($dropDownMenu->url) }}">
+                                                                        {{ $dropDownMenu->title }} </a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @endif
+                                                </li>
+                                            @endcan
+                                        @endforeach
+                                    @endif
+                                @endforeach
+                                @if (Auth::check())
+                                    @if (auth()->user()->hasRole('User A') ||
+                                            auth()->user()->hasRole('User B') ||
+                                            auth()->user()->hasRole('UserC1') ||
+                                            auth()->user()->hasRole('Developer'))
+                                        <li class=" "><a class="bar_text_large nav__item nav__item_border"
+                                                href="{{ url('/procedures') }}"><img
+                                                    src="{{ asset('website/images/Procedures.png') }}"
+                                                    alt="">Procedures</a>
+                                        </li>
+                                        <li class=" "><a class="bar_text_large nav__item nav__item_border"
+                                                href="{{ url('/human_resources') }}"><img
+                                                    src="{{ asset('website/images/Human Resources.png') }}"
+                                                    alt="">Human
+                                                Resources</a>
+                                        </li>
+                                        <li class=" "><a class="bar_text_large nav__item nav__item_border"
+                                                href="{{ url('/crm') }}"><img
+                                                    src="{{ asset('website/images/CRM.png') }}"
+                                                    alt="">CRM</a>
+                                        </li>
+                                    @elseif (auth()->user()->hasRole('UserC2'))
+                                        <li class=" "><a class="bar_text_large nav__item nav__item_border"
+                                                href="{{ url('/procedures') }}"><img
+                                                    src="{{ asset('website/images/Procedures.png') }}"
+                                                    alt="">Procedures</a>
+                                        </li>
+                                    @endif
+                                @endif
+                            </ul>
+                        </nav>
+
+                        <script>
+                            $('.nav__wrapper a').on('click', function() {
+                                $('.nav__wrapper').find('li.active').removeClass('active');
+                                $(this).parent('li').addClass('active');
+                            });
+                        </script>
+                    </div>
+
+
+                    <div class="site-header__end">
+                        <div class="topnav search_icon_div d-flex search_box">
+                            <p class="m-0"><input type="text" placeholder="Search here"></p>
+                            <img src="{{ asset('website/images/search_icon.png') }}" alt="">
+                        </div>
+                        @if (auth()->user()->hasRole('User B') ||
+                                auth()->user()->hasRole('UserC1'))
+                            <div class="d_flex_center m-4">
+                                <a href="{{ asset('user/create') }}">Add New User</a>
+                            </div>
+                        @elseif (auth()->user()->hasRole('User A'))
+                            <div class="d_grid_center m-4">
+                                <a href="{{ asset('users') }}">Manage Users</a><br>
                             </div>
                         @endif
-                    </nav>
-                    <nav class="navbar navbar-dark navbar-expand-sm mt-2">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        {{-- @if (Auth::check()) --}}
-                        <div class="collapse navbar-collapse" id="navbar-list-4">
-                            <ul class="navbar-nav">
-                                <div class="d_flex_center"><img src="{{ asset('website/images/profile_icon.png') }}"
-                                        alt="">
-                                </div>
-                                <div class="profile_name d_flex_center p-1 w-50">
-                                    {{ auth()->user()->name }}
-                                    {{-- <br> --}}
-                                </div>
-                                <li class="nav-item dropdown d-flex mt-4">
-                                    <a class="nav-link " href="#" id="navbarDropdownMenuLink" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img src="{{ asset('website/images/dropdown_arrow.png') }}" alt="">
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="/logout" route="{{ route('logout') }}">Log
-                                            Out</a>
-                                        <a class="dropdown-item" href="/account-settings">Account Settings</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        {{-- @endif --}}
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <div class="site-header__bottom custom_container">
-            <div class="wrapper site-header__wrapper p-0">
-                <div class="site-header__start">
-                    <nav class="nav">
-                        <button class="nav__toggle menu_btn" aria-expanded="false" type="button">
-                            menu
-                        </button>
-                        <ul class="nav__wrapper">
-
-                            <li class=" ">
-                                <a class="bar_text_large nav__item nav__item_border" href="{{ url('/') }}">
-                                    <img src="{{ asset('website/images/dashboard_logo.png') }}"
-                                        alt="">Dashboard</a>
-                            </li>
-                            @foreach ($laravelAdminMenus->menus as $section)
-                                @if (count(collect($section->items)) > 0)
-                                    @foreach ($section->items as $menu)
-                                        @can('view-' . str_slug($menu->title))
-                                            <li>
-                                                @if (isset($menu->dropDown))
-                                                    <a class="bar_text_large nav__item nav__item_border"
-                                                        href="javascript::void(0)" data-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false">
-                                                        <i class="glyphicon {{ $menu->icon }} fa-fw"></i>
-                                                        <span class="hide-menu"> {{ $menu->title }}</span>
-                                                    </a>
-                                                @else
-                                                    <a class="bar_text_large nav__item nav__item_border"
-                                                        href="{{ url($menu->url) }} ">
-                                                        <i class="glyphicon {{ $menu->icon }} fa-fw"></i>
-                                                        <span class="hide-menu"> {{ $menu->title }}</span>
-                                                    </a>
-                                                @endif
-
-                                                @if (isset($menu->dropDown))
-                                                    <ul class="collapse" aria-expanded="true">
-                                                        @foreach ($menu->dropDown as $dropDownMenu)
-                                                            <li aria-labelledby="dropdownMenuButton_{{ $menu->title }}">
-                                                                <a href="{{ url($dropDownMenu->url) }}">
-                                                                    {{ $dropDownMenu->title }} </a>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                @endif
-                                            </li>
-                                        @endcan
-                                    @endforeach
-                                @endif
-                            @endforeach
-                            @if (Auth::check())
-                                @if (auth()->user()->hasRole('User A') ||
-                                    auth()->user()->hasRole('User B') ||
-                                    auth()->user()->hasRole('UserC1') ||
-                                    auth()->user()->hasRole('Developer'))
-                                    <li class=" "><a class="bar_text_large nav__item nav__item_border"
-                                            href="{{ url('/procedures') }}"><img
-                                                src="{{ asset('website/images/Procedures.png') }}"
-                                                alt="">Procedures</a>
-                                    </li>
-                                    <li class=" "><a class="bar_text_large nav__item nav__item_border"
-                                            href="{{ url('/human_resources') }}"><img
-                                                src="{{ asset('website/images/Human Resources.png') }}"
-                                                alt="">Human
-                                            Resources</a>
-                                    </li>
-                                    <li class=" "><a class="bar_text_large nav__item nav__item_border"
-                                            href="{{ url('/crm') }}"><img
-                                                src="{{ asset('website/images/CRM.png') }}" alt="">CRM</a>
-                                    </li>
-                                @elseif (auth()->user()->hasRole('UserC2'))
-                                    <li class=" "><a class="bar_text_large nav__item nav__item_border"
-                                            href="{{ url('/procedures') }}"><img
-                                                src="{{ asset('website/images/Procedures.png') }}"
-                                                alt="">Procedures</a>
-                                    </li>
-                                @endif
-                            @endif
-                        </ul>
-                    </nav>
-
-                    <script>
-                        $('.nav__wrapper a').on('click', function() {
-                            $('.nav__wrapper').find('li.active').removeClass('active');
-                            $(this).parent('li').addClass('active');
-                        });
-                    </script>
-                </div>
-
-
-                <div class="site-header__end">
-                    <div class="topnav search_icon_div d-flex search_box">
-                        <p class="m-0"><input type="text" placeholder="Search here"></p>
-                        <img src="{{ asset('website/images/search_icon.png') }}" alt="">
                     </div>
-                    @if (auth()->user()->hasRole('User B') ||
-                        auth()->user()->hasRole('UserC1'))
-                        <div class="d_flex_center m-4">
-                            <a href="{{ asset('user/create') }}">Add New User</a>
-                        </div>
-                    @elseif (auth()->user()->hasRole('User A'))
-                        <div class="d_grid_center m-4">
-                            <a href="{{ asset('users') }}">Manage Users</a><br>
-                        </div>
-                    @endif
+                    <!-- <a href="#">عربي</a> -->
+                    <a class="small_text" href="#"><span class="small_text_purple">Dashboard</span>
+                        <b>/</b>Home</a>
                 </div>
-                <!-- <a href="#">عربي</a> -->
-                {{-- <a class="small_text" href="#"><span class="small_text_purple">Dashboard</span>
-                        <b>/</b>Home</a> --}}
             </div>
+        </header>
+        <!-- Header End -->
+
+        <!-- ===== Top-Navigation ===== -->
+        {{-- @include('layouts.partials.navbar') --}}
+        <!-- ===== Top-Navigation-End ===== -->
+
+        <!-- sidebar  -->
+        @if (auth()->user()->hasRole('Developer'))
+            @include('layouts.partials.sidebar')
+            @include('layouts.partials.right-sidebar')
+        @endif
+        {{-- <div class="custom_container">
+            @yield('content')
+        </div> --}}
+        <!-- ===== Page-Content ===== -->
+        <div class="page-wrapper">
+            @yield('content')
+            {{-- <footer class="footer t-a-c">
+                <div class="p-20 bg-white">
+                    <center> 2017 © Cubic Admin / Design & Developed By <a href="https://jthemes.com"
+                            target="_blank">jThemes Studio</a> </center>
+                </div>
+            </footer> --}}
         </div>
-        </div>
-    </header>
-    <!-- Header End -->
-
-
-    <!-- sidebar  -->
-    @include('layouts.partials.sidebar')
-
-
-
-
-
-    <div class="custom_container">
-
-        @yield('content')
+        <!-- ===== Page-Content-End ===== -->
     </div>
-    {{-- <script src="js/header-10.js"></script> --}}
+
+    <!-- ===== Main-Wrapper-End ===== -->
+    <!-- ==============================
+    Required JS Files
+=============================== -->
+    <!-- ===== jQuery ===== -->
+    <script src="{{ asset('plugins/components/jquery/dist/jquery.min.js') }}"></script>
+    <!-- ===== Bootstrap JavaScript ===== -->
+    <script src="{{ asset('bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <!-- ===== Slimscroll JavaScript ===== -->
+    <script src="{{ asset('js/jquery.slimscroll.js') }}"></script>
+    <!-- ===== Wave Effects JavaScript ===== -->
+    <script src="{{ asset('js/waves.js') }}"></script>
+    <!-- ===== Menu Plugin JavaScript ===== -->
+    <script src="{{ asset('js/sidebarmenu.js') }}"></script>
+    <!-- ===== Custom JavaScript ===== -->
+
+    @if (session()->get('theme-layout') == 'fix-header')
+        <script src="{{ asset('js/custom-fix-header.js') }}"></script>
+    @elseif(session()->get('theme-layout') == 'mini-sidebar')
+        <script src="{{ asset('js/custom-mini-sidebar.js') }}"></script>
+    @else
+        <script src="{{ asset('js/custom-normal.js') }}"></script>
+    @endif
+
+    {{-- <script src="{{asset('js/custom.js')}}"></script> --}}
+    <!-- ===== Plugin JS ===== -->
+    <script src="{{ asset('plugins/components/chartist-js/dist/chartist.min.js') }}"></script>
+    <script src="{{ asset('plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js') }}">
+    </script>
+    <script src="{{ asset('plugins/components/sparkline/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ asset('plugins/components/sparkline/jquery.charts-sparkline.js') }}"></script>
+    <script src="{{ asset('plugins/components/knob/jquery.knob.js') }}"></script>
+    <script src="{{ asset('plugins/components/easypiechart/dist/jquery.easypiechart.min.js') }}"></script>
+    <!-- ===== Style Switcher JS ===== -->
+    <script src="{{ asset('plugins/components/styleswitcher/jQuery.style.switcher.js') }}"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.9.0/js/bootstrap-iconpicker-iconset-all.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.9.0/js/bootstrap-iconpicker.min.js"></script>
+
+    {{-- old code --}}
 
     <script src="{{ asset('website/js/header-10.js') }}"></script>
     @stack('js')
+
 </body>
 
 @yield('externalJsLinks')
